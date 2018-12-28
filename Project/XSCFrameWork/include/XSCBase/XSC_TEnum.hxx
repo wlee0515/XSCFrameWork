@@ -7,6 +7,10 @@
 #include <string>
 
 namespace XSC {
+  class EnumTableProvider;
+}
+
+namespace XSC {
   namespace EnumMap {
     template <typename TEnumType>
     inline const std::map<TEnumType, std::string>& getEnumConversionTable(const TEnumType&)
