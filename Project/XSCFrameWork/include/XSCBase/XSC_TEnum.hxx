@@ -7,6 +7,7 @@
 #include <string>
 
 #define ENUM_DEFINITION_START(TEnumType )                                                    \
+namespace XSC {  namespace EnumMap {                                                         \
 inline const std::map<TEnumType, std::string>& getEnumConversionTable(TEnumType&)            \
 {                                                                                            \
   std::map<TEnumType, std::string>* gTable = EnumTableProvider::getGlobalTable<TEnumType>(); \
@@ -22,7 +23,7 @@ inline const std::map<TEnumType, std::string>& getEnumConversionTable(TEnumType&
 #define ENUM_DEFINITION_END                                                                  \
   }                                                                                          \
   return *gTable;                                                                            \
-}                                                                                            \
+}}}                                                                                          \
 
 namespace XSC
 {
@@ -113,7 +114,7 @@ namespace XSC
     static bool convertEnumToString(const TEnum& iEnumValue, std::string& oStringValue)
     {
       TEnum wEnum;
-      const std::map<TEnum, std::string> wTable = XSC::getEnumConversionTable(wEnum);
+      const std::map<TEnum, std::string> wTable = XSC::EnumMap::getEnumConversionTable(wEnum);
 
       std::map<TEnum, std::string>::const_iterator wIt = wTable.find(iEnumValue);
 
@@ -129,7 +130,7 @@ namespace XSC
     static bool convertStringToEnum(const std::string& iStringValue, TEnum& oEnumValue)
     {
       TEnum wEnum;
-      const std::map<TEnum, std::string>& wTable = XSC::getEnumConversionTable(wEnum);
+      const std::map<TEnum, std::string>& wTable = XSC::EnumMap::getEnumConversionTable(wEnum);
 
       for (std::map<TEnum, std::string>::const_iterator wIt = wTable.begin(); wIt != wTable.end(); ++wIt)
       {
@@ -158,14 +159,10 @@ namespace XSC
   };
 }
 
-namespace XSC
-{
-  ENUM_DEFINITION_START(XSC::XSC_Action)
-    ENUM_DEFINITION_DECLARE(XSC::eXSC_Setup, "Setup");
-    ENUM_DEFINITION_DECLARE(XSC::eXSC_Start, "Start");
-    ENUM_DEFINITION_DECLARE(XSC::eXSC_Stop, "Stop");
-  ENUM_DEFINITION_END
-
-}
+ENUM_DEFINITION_START(XSC::XSC_Action)
+  ENUM_DEFINITION_DECLARE(XSC::eXSC_Setup, "Setup");
+  ENUM_DEFINITION_DECLARE(XSC::eXSC_Start, "Start");
+  ENUM_DEFINITION_DECLARE(XSC::eXSC_Stop, "Stop");
+ENUM_DEFINITION_END
 
 #endif
