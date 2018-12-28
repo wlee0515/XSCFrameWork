@@ -5,6 +5,7 @@
 #include "XSCUtility/XSC_StringTools.h"
 
 #include <sstream>
+#include <cstring>
 
 namespace XSC
 {
