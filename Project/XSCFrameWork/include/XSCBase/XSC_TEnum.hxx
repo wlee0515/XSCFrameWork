@@ -49,7 +49,7 @@ namespace XSC
       TEnum wEnum;
       const std::map<TEnum, std::string> wTable = XSC::EnumMap::getEnumConversionTable(wEnum);
 
-      std::map<TEnum, std::string>::const_iterator wIt = wTable.find(iEnumValue);
+      typename std::map<TEnum, std::string>::const_iterator wIt = wTable.find(iEnumValue);
 
       if (wTable.end() != wIt)
       {
@@ -65,7 +65,7 @@ namespace XSC
       TEnum wEnum;
       const std::map<TEnum, std::string>& wTable = XSC::EnumMap::getEnumConversionTable(wEnum);
 
-      for (std::map<TEnum, std::string>::const_iterator wIt = wTable.begin(); wIt != wTable.end(); ++wIt)
+      for (typename std::map<TEnum, std::string>::const_iterator wIt = wTable.begin(); wIt != wTable.end(); ++wIt)
       {
         if (wIt->second == iStringValue)
         {
