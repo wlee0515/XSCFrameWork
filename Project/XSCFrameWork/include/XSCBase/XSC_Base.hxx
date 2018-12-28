@@ -219,7 +219,7 @@ namespace XSC
     virtual void getVoidPtrArray(std::vector<XSC_Void*>& oArrayPtr)
     {
       oArrayPtr.clear();
-      for (std::deque<T>::iterator wIt = this->begin(); wIt != this->end(); ++wIt)
+      for (typename std::deque<T>::iterator wIt = this->begin(); wIt != this->end(); ++wIt)
       {
         oArrayPtr.push_back(&(*wIt));
       }
@@ -228,7 +228,7 @@ namespace XSC
     virtual void getVoidPtrArray(std::vector<const XSC_Void*>& oArrayPtr) const
     {
       oArrayPtr.clear();
-      for (std::deque<T>::const_iterator wIt = this->begin(); wIt != this->end(); ++wIt)
+      for (typename std::deque<T>::const_iterator wIt = this->begin(); wIt != this->end(); ++wIt)
       {
         oArrayPtr.push_back(&(*wIt));
       }
@@ -236,7 +236,7 @@ namespace XSC
 
     virtual void SClassSetup()
     {
-      for (std::deque<T>::iterator wIt = this->begin(); wIt != this->end(); ++wIt)
+      for (typename std::deque<T>::iterator wIt = this->begin(); wIt != this->end(); ++wIt)
       {
         XSC_Object* wElement = wIt->getObjectInterface();
         if (nullptr != wElement)
@@ -250,7 +250,7 @@ namespace XSC
     virtual bool SClassStart()
     {
       bool wState = true;
-      for (std::deque<T>::iterator wIt = this->begin(); wIt != this->end(); ++wIt)
+      for (typename std::deque<T>::iterator wIt = this->begin(); wIt != this->end(); ++wIt)
       {
         XSC_Object* wElement = wIt->getObjectInterface();
         if (nullptr != wElement)
@@ -264,7 +264,7 @@ namespace XSC
     virtual bool SClassStop()
     {
       bool wState = true;
-      for (std::deque<T>::iterator wIt = this->begin(); wIt != this->end(); ++wIt)
+      for (typename std::deque<T>::iterator wIt = this->begin(); wIt != this->end(); ++wIt)
       {
         XSC_Object* wElement = wIt->getObjectInterface();
         if (nullptr != wElement)
@@ -285,7 +285,7 @@ namespace XSC
 
     virtual ~XSC_TArrayPtr()
     {
-      for (std::deque<T*>::iterator wIt = this->begin(); wIt != this->end(); ++wIt)
+      for (typename std::deque<T*>::iterator wIt = this->begin(); wIt != this->end(); ++wIt)
       {
         delete *wIt;
         *wIt = nullptr;
@@ -379,7 +379,7 @@ namespace XSC
     virtual void getVoidPtrArray(std::vector<XSC_Void*>& oArrayPtr)
     {
       oArrayPtr.clear();
-      for (std::deque<T*>::iterator wIt = this->begin(); wIt != this->end(); ++wIt)
+      for (typename std::deque<T*>::iterator wIt = this->begin(); wIt != this->end(); ++wIt)
       {
         oArrayPtr.push_back(*wIt);
       }
@@ -388,7 +388,7 @@ namespace XSC
     virtual void getVoidPtrArray(std::vector<const XSC_Void*>& oArrayPtr) const
     {
       oArrayPtr.clear();
-      for (std::deque<T*>::const_iterator wIt = this->begin(); wIt != this->end(); ++wIt)
+      for (typename std::deque<T*>::const_iterator wIt = this->begin(); wIt != this->end(); ++wIt)
       {
         oArrayPtr.push_back(*wIt);
       }
@@ -396,7 +396,7 @@ namespace XSC
 
     virtual void SClassSetup()
     {
-      for (std::deque<T*>::iterator wIt = this->begin(); wIt != this->end(); ++wIt)
+      for (typename std::deque<T*>::iterator wIt = this->begin(); wIt != this->end(); ++wIt)
       {
         if (nullptr != *wIt)
         {
@@ -413,7 +413,7 @@ namespace XSC
     virtual bool SClassStart()
     {
       bool wState = true;
-      for (std::deque<T*>::iterator wIt = this->begin(); wIt != this->end(); ++wIt)
+      for (typename std::deque<T*>::iterator wIt = this->begin(); wIt != this->end(); ++wIt)
       {
         if (nullptr != *wIt)
         {
@@ -430,7 +430,7 @@ namespace XSC
     virtual bool SClassStop()
     {
       bool wState = true;
-      for (std::deque<T*>::iterator wIt = this->begin(); wIt != this->end(); ++wIt)
+      for (typename std::deque<T*>::iterator wIt = this->begin(); wIt != this->end(); ++wIt)
       {
         if (nullptr != *wIt)
         {
