@@ -10,7 +10,7 @@ namespace XSC
   class XSC_SafeDataPointer : public XSC_Data
   {
   public:
-    XSC_SafeDataPointer() : mObjPtr(nullptr)
+    XSC_SafeDataPointer() : mDataPtr(nullptr)
     {
 
     }
