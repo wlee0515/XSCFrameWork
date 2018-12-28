@@ -4,7 +4,7 @@ BuildDir="build"
 
 if [ -d $BuildDir ]; then 
    echo "Removing existing build directory {$BuildDir}"
-   sudo rm -r $LinkDir
+   sudo rm -rf $LinkDir
 fi
 
 echo "Creatiing new build directory {$BuildDir}"
