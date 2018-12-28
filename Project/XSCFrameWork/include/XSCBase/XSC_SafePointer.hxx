@@ -55,7 +55,7 @@ namespace XSC
         mDataPtr = nullptr;
       }
 
-      return XSC_Object::distroyedCallback(iElement);
+      return XSC_Data::distroyedCallback(iElement);
     }
 
   public:
