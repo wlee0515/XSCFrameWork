@@ -3,7 +3,7 @@
 
 #include "XSCBase/XSC_Base.hxx"
 #include "XSCBase/XSC_TData.hxx"
-#include "XSCBase/XSC_SafePointer.h"
+#include "XSCBase/XSC_SafePointer.hxx"
 
 #include <map>
 #include <vector>

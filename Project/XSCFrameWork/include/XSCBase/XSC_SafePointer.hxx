@@ -25,7 +25,7 @@ namespace XSC
     {
       if (nullptr != mDataPtr)
       {
-        mDataPtr->unsubscribeFromDistruction(*this)
+        mDataPtr->unsubscribeFromDistruction(*this);
       }
       mDataPtr = nullptr;
     }
