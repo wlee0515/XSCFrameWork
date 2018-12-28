@@ -79,7 +79,7 @@ namespace XSC {
       }
 
       XSC_SingletonContainer<T_Singleton>* wNewContainer = XSC_SingletonContainer<T_Singleton>::createContainer();
-      mSingletonContainerList[static_cast<void*>(XSC_SingletonContainer<T_Singleton>::createContainer)] = static_cast<void*>(wNewContainer);
+      mSingletonContainerList[static_cast<void*>(&XSC_SingletonContainer<T_Singleton>::createContainer)] = static_cast<void*>(wNewContainer);
 
       std::string wName;
       wName = XSC::XSC_TypeLibrary::GetTypeName<T_Singleton>();
