@@ -20,7 +20,7 @@ namespace XSC {
         T_Singleton* wSingleton = new T_Singleton();
         wSingleton->SClassSetup();
         mSelfInstantiate = true;
-        setPtr(*wSingleton);
+        XSC_SafeObjectPointer<T_Singleton, false>::setPtr(*wSingleton);
       }
       return *XSC_SafeObjectPointer<T_Singleton, false>::getPtr();
     }
@@ -36,7 +36,7 @@ namespace XSC {
         }
       }
 
-      setPtr(iSingleton);
+      XSC_SafeObjectPointer<T_Singleton, false>::setPtr(iSingleton);
     }
 
     static XSC_SingletonContainer<T_Singleton>* createContainer()
