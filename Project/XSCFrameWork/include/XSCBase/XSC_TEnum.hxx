@@ -6,11 +6,27 @@
 #include <map>
 #include <string>
 
+namespace XSC {
+  namespace EnumMap {
+    template <typename TEnumType>
+    inline const std::map<TEnumType, std::string>& getEnumConversionTable(const TEnumType&)
+    {
+      std::map<TEnumType, std::string>* gTable = XSC::EnumTableProvider::getGlobalTable<TEnumType>();
+      if (nullptr == gTable)
+      {
+        gTable = EnumTableProvider::createGlobalTable<TEnumType>();
+      }
+      return *gTable;
+    }
+  }
+}
+
+
 #define ENUM_DEFINITION_START(TEnumType )                                                    \
 namespace XSC {  namespace EnumMap {                                                         \
 inline const std::map<TEnumType, std::string>& getEnumConversionTable(TEnumType&)            \
 {                                                                                            \
-  std::map<TEnumType, std::string>* gTable = EnumTableProvider::getGlobalTable<TEnumType>(); \
+  std::map<TEnumType, std::string>* gTable = XSC::EnumTableProvider::getGlobalTable<TEnumType>(); \
   if (nullptr == gTable)                                                                     \
   {                                                                                          \
      gTable = EnumTableProvider::createGlobalTable<TEnumType>();                             \
@@ -160,9 +176,9 @@ namespace XSC
 }
 
 ENUM_DEFINITION_START(XSC::XSC_Action)
-  ENUM_DEFINITION_DECLARE(XSC::eXSC_Setup, "Setup");
-  ENUM_DEFINITION_DECLARE(XSC::eXSC_Start, "Start");
-  ENUM_DEFINITION_DECLARE(XSC::eXSC_Stop, "Stop");
+ENUM_DEFINITION_DECLARE(XSC::eXSC_Setup, "Setup");
+ENUM_DEFINITION_DECLARE(XSC::eXSC_Start, "Start");
+ENUM_DEFINITION_DECLARE(XSC::eXSC_Stop, "Stop");
 ENUM_DEFINITION_END
 
 #endif
