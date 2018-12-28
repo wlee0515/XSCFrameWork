@@ -128,7 +128,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\XSCBase\XSC_Base.hxx" />
-    <ClInclude Include="include\XSCBase\XSC_SafePointer.h" />
+    <ClInclude Include="include\XSCBase\XSC_SafePointer.hxx" />
     <ClInclude Include="include\XSCBase\XSC_Scheduler.h" />
     <ClInclude Include="include\XSCBase\XSC_SingletonProvider.hxx" />
     <ClInclude Include="include\XSCBase\XSC_TData.hxx" />

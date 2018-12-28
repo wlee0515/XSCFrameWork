@@ -50,9 +50,6 @@
     <ClInclude Include="include\XSCBase\XSC_Base.hxx">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\XSCBase\XSC_SafePointer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\XSCBase\XSC_Scheduler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -105,6 +102,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="thirdparty\tinyXML\tinyxml2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\XSCBase\XSC_SafePointer.hxx">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
