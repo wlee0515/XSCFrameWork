@@ -24,9 +24,6 @@
     <ClCompile Include="source\XSCBase\XSC_SingletonProvider.cxx">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\XSCBase\XSC_TEnum.cxx">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="source\XSCExe\XSC_DynamicTypeDefinition.cxx">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -43,6 +40,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="thirdparty\tinyXML\tinyxml2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\XSCBase\XSC_EnumTableProvider.cxx">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -105,6 +105,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\XSCBase\XSC_SafePointer.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\XSCBase\XSC_EnumTableProvider.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
