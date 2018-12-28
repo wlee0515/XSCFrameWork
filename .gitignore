@@ -1,0 +1,11 @@
+
+*.pdb
+*.exe
+*.ilk
+Project/.vs/XSCFrameWork/v14/.suo
+*.idb
+*.obj
+*.tlog
+*.opendb
+*.log
+*.user

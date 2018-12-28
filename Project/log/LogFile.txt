@@ -1,0 +1,64 @@
+TRACE:2018/12/28 13:15:04  XSC::Parse::parseXMLFile : Processing File : ./configuration/ProgramSetup.xml
+:2018/12/28 13:15:04  XSC::XSC_TypeLibrary::createObject : Unable to find Type name "MemoryBlockHttpAdapter" 
+:2018/12/28 13:15:04  XSC::Parse::parseXMLNode : Type name not valid : Create name : MemoryBlockHttpAdapter typename : MemoryBlockHttpAdapter
+TRACE:2018/12/28 13:18:02  XSC::Parse::parseXMLFile : Processing File : ./configuration/ProgramSetup.xml
+:2018/12/28 13:18:02  XSC::XSC_TypeLibrary::createObject : Unable to find Type name "MemoryBlockHttpAdapter" 
+:2018/12/28 13:18:02  XSC::Parse::parseXMLNode : Type name not valid : Create name : MemoryBlockHttpAdapter typename : MemoryBlockHttpAdapter
+DISP:2018/12/28 13:18:51  
+
+
+
+DISP:2018/12/28 13:19:17  
+
+
+
+DISP:2018/12/28 13:20:16  
+
+
+
+DISP:2018/12/28 13:22:44  
+
+
+
+DISP:2018/12/28 13:22:52  
+
+
+
+DISP:2018/12/28 13:23:00  
+
+
+
+DISP:2018/12/28 13:24:26  
+
+
+
+TRACE:2018/12/28 13:32:22  XSC::Parse::parseXMLFile : Processing File : ./configuration/ProgramSetup.xml
+DISP:2018/12/28 13:32:26  
+
+
+
+TRACE:2018/12/28 13:32:26  XSC::Parse::parseXMLFile : Processing File : ./configuration/ProgramSetup.xml
+DISP:2018/12/28 13:32:28  
+
+
+
+TRACE:2018/12/28 13:32:28  XSC::Parse::parseXMLFile : Processing File : ./configuration/ProgramSetup.xml
+DISP:2018/12/28 13:32:30  
+
+
+
+TRACE:2018/12/28 13:32:40  XSC::Parse::parseXMLFile : Processing File : ./configuration/ProgramSetup.xml
+DISP:2018/12/28 13:32:44  
+
+
+
+TRACE:2018/12/28 13:32:50  XSC::Parse::parseXMLFile : Processing File : ./configuration/ProgramSetup.xml
+DISP:2018/12/28 13:32:53  
+
+
+
+TRACE:2018/12/28 13:32:53  XSC::Parse::parseXMLFile : Processing File : ./configuration/ProgramSetup.xml
+DISP:2018/12/28 13:32:59  
+
+
+

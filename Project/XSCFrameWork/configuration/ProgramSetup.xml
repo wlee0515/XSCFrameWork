@@ -1,0 +1,7 @@
+<ProgramSetup>
+  <DataDef Name="LogFilePath">../log/</DataDef>
+	<DataDef Name = "SingletonProvider">
+    <DataDef Name = "Scheduler">
+    </DataDef>
+	</DataDef>
+</ProgramSetup>
