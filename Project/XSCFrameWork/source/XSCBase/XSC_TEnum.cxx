@@ -1,4 +1,4 @@
-#include "XSCBase\XSC_TEnum.hxx"
+#include "XSCBase/XSC_TEnum.hxx"
 
 namespace XSC
 {

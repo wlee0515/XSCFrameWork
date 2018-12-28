@@ -1,9 +1,9 @@
 #ifndef XSC_NODE_VIEWER_H
 #define XSC_NODE_VIEWER_H
 
-#include "XSCBase\XSC_Base.hxx"
-#include "XSCBase\XSC_TData.hxx"
-#include "XSCBase\XSC_SafePointer.h"
+#include "XSCBase/XSC_Base.hxx"
+#include "XSCBase/XSC_TData.hxx"
+#include "XSCBase/XSC_SafePointer.h"
 
 #include <map>
 #include <vector>

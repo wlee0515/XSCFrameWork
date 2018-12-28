@@ -1,9 +1,9 @@
 #ifndef XSC_TMEMORY_BLOCK_PTR_H
 #define XSC_TMEMORY_BLOCK_PTR_H
 
-#include "XSCBase\XSC_Base.hxx"
-#include "XSCEnum\XSC_DataTypeEnum.h"
-#include "XSCUtility\XSC_StringTools.h"
+#include "XSCBase/XSC_Base.hxx"
+#include "XSCEnum/XSC_DataTypeEnum.h"
+#include "XSCUtility/XSC_StringTools.h"
 #include <string>
 
 namespace XSC

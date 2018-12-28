@@ -6,7 +6,7 @@
 #include <map>
 #include <deque>
 #include <vector>
-#include "XSCUtility\XSC_Logger.h"
+#include "XSCUtility/XSC_Logger.h"
 
 namespace XSC
 {

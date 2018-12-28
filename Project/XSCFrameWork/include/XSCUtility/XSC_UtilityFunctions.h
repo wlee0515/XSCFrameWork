@@ -7,7 +7,7 @@
 #include <sstream>
 #include <ctime>
 
-#include "BClass\BClass_BracketTree.h"
+#include "BClass/BClass_BracketTree.h"
 
 #ifdef __linux__
 

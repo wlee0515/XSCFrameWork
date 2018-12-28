@@ -1,8 +1,8 @@
 #ifndef XSC_T_DATAPTR_H
 #define XSC_T_DATAPTR_H
 
-#include "XSCBase\XSC_Base.hxx"
-#include "XSCUtility\XSC_StringTools.h"
+#include "XSCBase/XSC_Base.hxx"
+#include "XSCUtility/XSC_StringTools.h"
 
 #include <sstream>
 

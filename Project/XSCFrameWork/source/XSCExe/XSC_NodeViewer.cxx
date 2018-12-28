@@ -1,4 +1,4 @@
-#include "XSCExe\XSC_NodeViewer.h"
+#include "XSCExe/XSC_NodeViewer.h"
 
 #include <map>
 #include <vector>

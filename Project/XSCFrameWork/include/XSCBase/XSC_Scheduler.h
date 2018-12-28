@@ -1,8 +1,8 @@
 #ifndef XSC_SCHEDULER_H
 #define XSC_SCHEDULER_H
 
-#include "XSCBase\XSC_Base.hxx"
-#include "XSCBase\XSC_TData.hxx"
+#include "XSCBase/XSC_Base.hxx"
+#include "XSCBase/XSC_TData.hxx"
 
 #include <thread>
 #include <chrono>

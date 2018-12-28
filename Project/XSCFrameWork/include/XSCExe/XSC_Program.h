@@ -1,11 +1,11 @@
 #ifndef XSC_PROGRAM_H
 #define XSC_PROGRAM_H
 
-#include "XSCBase\XSC_Base.hxx"
-#include "XSCBase\XSC_SingletonProvider.hxx"
-#include "XSCUtility\XSC_Logger.h"
-#include "XSCBase\XSC_TData.hxx"
-#include "XSCExe\XSC_NodeViewer.h"
+#include "XSCBase/XSC_Base.hxx"
+#include "XSCBase/XSC_SingletonProvider.hxx"
+#include "XSCUtility/XSC_Logger.h"
+#include "XSCBase/XSC_TData.hxx"
+#include "XSCExe/XSC_NodeViewer.h"
 
 #include <vector>
 #include <string>

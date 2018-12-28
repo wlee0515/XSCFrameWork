@@ -1,4 +1,4 @@
-#include "XSCBase\XSC_SingletonProvider.hxx"
+#include "XSCBase/XSC_SingletonProvider.hxx"
 
 namespace XSC {
 

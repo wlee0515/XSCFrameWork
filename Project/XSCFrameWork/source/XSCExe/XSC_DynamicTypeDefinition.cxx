@@ -1,12 +1,12 @@
-#include "XSCExe\XSC_DynamicTypeDefinition.h"
+#include "XSCExe/XSC_DynamicTypeDefinition.h"
 
-#include "XSCBase\XSC_TypeLibrary.h"
-#include "XSCBase\XSC_SingletonProvider.hxx"
+#include "XSCBase/XSC_TypeLibrary.h"
+#include "XSCBase/XSC_SingletonProvider.hxx"
 
-#include "XSCBase\XSC_Scheduler.h"
+#include "XSCBase/XSC_Scheduler.h"
 
-#include "XSCExe\XSC_Program.h"
-#include "XSCExe\XSC_HeartBeat.h"
+#include "XSCExe/XSC_Program.h"
+#include "XSCExe/XSC_HeartBeat.h"
 
 namespace XSC
 {

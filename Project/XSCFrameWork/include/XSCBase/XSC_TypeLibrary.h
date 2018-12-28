@@ -1,9 +1,9 @@
 #ifndef XSC_TYPE_LIBRARY_H
 #define XSC_TYPE_LIBRARY_H
 
-#include "XSCBase\XSC_Base.hxx"
-#include "XSCBase\XSC_SingletonProvider.hxx"
-#include "XSCUtility\XSC_Logger.h"
+#include "XSCBase/XSC_Base.hxx"
+#include "XSCBase/XSC_SingletonProvider.hxx"
+#include "XSCUtility/XSC_Logger.h"
 
 namespace XSC {
 

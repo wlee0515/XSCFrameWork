@@ -1,7 +1,7 @@
-#include "XSCExe\XSC_ParseXml.h"
-#include "XSCBase\XSC_Base.hxx"
-#include "XSCUtility\XSC_Logger.h"
-#include "XSCBase\XSC_TypeLibrary.h"
+#include "XSCExe/XSC_ParseXml.h"
+#include "XSCBase/XSC_Base.hxx"
+#include "XSCUtility/XSC_Logger.h"
+#include "XSCBase/XSC_TypeLibrary.h"
 
 #include <string>
 #include <list>
