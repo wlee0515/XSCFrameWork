@@ -15,23 +15,23 @@ namespace XSC {
 
     T_Singleton& getSingletonRef()
     {
-      if (nullptr == getPtr())
+      if (nullptr == XSC_SafeObjectPointer<T_Singleton, false>::getPtr())
       {
         T_Singleton* wSingleton = new T_Singleton();
         wSingleton->SClassSetup();
         mSelfInstantiate = true;
         setPtr(*wSingleton);
       }
-      return *getPtr();
+      return *XSC_SafeObjectPointer<T_Singleton, false>::getPtr();
     }
 
     void setSingletonRef(T_Singleton& iSingleton)
     {
       if (true == mSelfInstantiate)
       {
-        if (nullptr != getPtr())
+        if (nullptr != XSC_SafeObjectPointer<T_Singleton, false>::getPtr())
         {
-          delete getPtr();
+          delete XSC_SafeObjectPointer<T_Singleton, false>::getPtr();
           mSelfInstantiate = false;
         }
       }
