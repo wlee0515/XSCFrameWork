@@ -116,6 +116,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="source\XSCBase\XSC_Base.cxx" />
+    <ClCompile Include="source\XSCBase\XSC_Scheduler.cxx" />
     <ClCompile Include="source\XSCBase\XSC_SingletonProvider.cxx" />
     <ClCompile Include="source\XSCBase\XSC_EnumTableProvider.cxx" />
     <ClCompile Include="source\XSCExe\XSC_DynamicTypeDefinition.cxx" />

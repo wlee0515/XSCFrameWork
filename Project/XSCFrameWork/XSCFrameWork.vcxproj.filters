@@ -45,6 +45,9 @@
     <ClCompile Include="source\XSCBase\XSC_EnumTableProvider.cxx">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source\XSCBase\XSC_Scheduler.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\XSCBase\XSC_Base.hxx">
