@@ -25,7 +25,8 @@ namespace XSC {
   {
     std::vector<unsigned char> wBuffer;
     wBuffer.resize(iRequest.size(), '\0');
-    memcpy_s(&wBuffer[0], wBuffer.size(), &iRequest[0], iRequest.size());
+
+    memcpy(&wBuffer[0], &iRequest[0], iRequest.size());
 
     wBuffer.push_back('\0');
     wBuffer.push_back('\0');
@@ -103,7 +104,7 @@ namespace XSC {
         if (nullptr != wConnection)
         {
           wSignedBuffer.resize(wBuffer.size(), '\0');
-          memcpy_s(&wSignedBuffer[0], wSignedBuffer.size(), &wBuffer[0], wBuffer.size());
+          memcpy(&wSignedBuffer[0], &wBuffer[0], wBuffer.size());
 
 
           std::string wRequest( &wSignedBuffer[0], wResponseLength);
@@ -118,7 +119,7 @@ namespace XSC {
               std::string& wMessage = wResponse[wi];
 
               wBuffer.resize(wMessage.size(), '\0');
-              memcpy_s(&wBuffer[0], wBuffer.size(), &wMessage[0], wMessage.size());
+              memcpy(&wBuffer[0], &wMessage[0], wMessage.size());
 
               wBuffer.push_back('\0');
               RS232_SendBuf(mCOMPortNumber, &wBuffer[0], static_cast<int>(wBuffer.size()));
