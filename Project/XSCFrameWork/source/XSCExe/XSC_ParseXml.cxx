@@ -5,6 +5,7 @@
 
 #include <string>
 #include <list>
+#include <algorithm>
 
 namespace XSC
 {
