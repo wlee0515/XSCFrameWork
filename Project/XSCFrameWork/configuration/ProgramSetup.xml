@@ -4,4 +4,9 @@
     <DataDef Name = "Scheduler">
     </DataDef>
 	</DataDef>
+  
+  <Create Name="HeartBeat" TypeName = "HeartBeat">
+    <DataDef Name = "Tier">2</DataDef>
+  </Create>
+  
 </ProgramSetup>
