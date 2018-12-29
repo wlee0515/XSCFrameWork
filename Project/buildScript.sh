@@ -14,5 +14,5 @@ echo "Setting directory permission to 757"
 sudo chmod -R 757 $BuildDir
 
 echo "Start Compilation"
-g++ -pthread -o $BuildDir/XSCRun -I XSCFrameWork/include/ -I XSCFrameWork/thirdparty/ XSCFrameWork/thirdparty/*/*.cpp XSCFrameWork/source/*/*.cxx XSCFrameWork/source/*.cxx
+g++ -pthread -o $BuildDir/XSCRun -I XSCFrameWork/include/ -I XSCFrameWork/thirdparty/ XSCFrameWork/thirdparty/*/*.cpp XSCFrameWork/source/*/*.cxx XSCFrameWork/source/*/*/*.cxx XSCFrameWork/source/*.cxx
 echo "End Compilation"
