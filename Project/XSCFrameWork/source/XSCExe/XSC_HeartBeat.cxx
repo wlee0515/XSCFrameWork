@@ -1,9 +1,9 @@
 #include "XSCExe/XSC_HeartBeat.h"
 
-#include "XSCBase/XSC_SingletonProvider.hxx"
-
 namespace XSC
 {
+  ADD_TYPE_FACTORY_WITH_NAME(XSC_HeartBeat, "HeartBeat");
+
   void XSC_HeartBeat::SClassSetup()
   {
     addChild("Tier", mTier);

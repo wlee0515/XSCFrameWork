@@ -7,23 +7,7 @@
 #include <deque>
 #include <vector>
 #include "XSCUtility/XSC_Logger.h"
-#include "XSCBase/XSC_EnumTableProvider.h"
-
-namespace XSC
-{
-  enum XSC_Action {
-    eXSC_Setup,
-    eXSC_Start,
-    eXSC_Stop,
-  };
-}
-
-
-ENUM_DEFINITION_START(XSC::XSC_Action)
-ENUM_DEFINITION_DECLARE(XSC::eXSC_Setup, "Setup");
-ENUM_DEFINITION_DECLARE(XSC::eXSC_Start, "Start");
-ENUM_DEFINITION_DECLARE(XSC::eXSC_Stop, "Stop");
-ENUM_DEFINITION_END
+#include "XSCEnum/XSC_ActionEnum.h"
 
 namespace XSC
 {

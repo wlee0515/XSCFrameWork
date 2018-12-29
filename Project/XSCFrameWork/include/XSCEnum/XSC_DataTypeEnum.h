@@ -1,13 +1,13 @@
 #ifndef XSC_SMDATATYPE_ENUM_H
 #define XSC_SMDATATYPE_ENUM_H
 
-#include "XSCBase\XSC_TEnum.hxx"
+#include "XSCBase/XSC_TEnum.hxx"
 
 namespace XSC
 {
   enum eDataType
   {
-      eSInt8 = 1
+    eSInt8 = 1
     , eSInt16 = 2
     , eSInt32 = 3
     , eUInt8 = 4
@@ -17,19 +17,22 @@ namespace XSC
     , eFloat64 = 8
     , eString = 9
   };
+}
 
-  ENUM_DEFINITION_START(eDataType)
-    ENUM_DEFINITION_DECLARE(eSInt8,  "eSInt8"   );
-    ENUM_DEFINITION_DECLARE(eSInt16, "eSInt16"  );
-    ENUM_DEFINITION_DECLARE(eSInt32, "eSInt32"  );
-    ENUM_DEFINITION_DECLARE(eUInt8,  "eUInt8"   );
-    ENUM_DEFINITION_DECLARE(eUInt16, "eUInt16"  );
-    ENUM_DEFINITION_DECLARE(eUInt32, "eUInt32"  );
-    ENUM_DEFINITION_DECLARE(eFloat32,"eFloat32" );
-    ENUM_DEFINITION_DECLARE(eFloat64,"eFloat64" );
-    ENUM_DEFINITION_DECLARE(eString, "eString"  );
-  ENUM_DEFINITION_END
+ENUM_DEFINITION_START(XSC::eDataType)
+  ENUM_DEFINITION_DECLARE(XSC::eSInt8,  "eSInt8"   );
+  ENUM_DEFINITION_DECLARE(XSC::eSInt16, "eSInt16"  );
+  ENUM_DEFINITION_DECLARE(XSC::eSInt32, "eSInt32"  );
+  ENUM_DEFINITION_DECLARE(XSC::eUInt8,  "eUInt8"   );
+  ENUM_DEFINITION_DECLARE(XSC::eUInt16, "eUInt16"  );
+  ENUM_DEFINITION_DECLARE(XSC::eUInt32, "eUInt32"  );
+  ENUM_DEFINITION_DECLARE(XSC::eFloat32,"eFloat32" );
+  ENUM_DEFINITION_DECLARE(XSC::eFloat64,"eFloat64" );
+  ENUM_DEFINITION_DECLARE(XSC::eString, "eString"  );
+ENUM_DEFINITION_END
 
+namespace XSC
+{
   inline unsigned int getEnumDataTypeSize(const eDataType& iDataType)
   {
     switch (iDataType)

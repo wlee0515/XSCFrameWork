@@ -1,0 +1,194 @@
+<ServiceProviderDefinition>
+<DataDef Name = "Service">
+	<!--DataDef Name = "ConnectionProxy" ConnectionKey = "MultiServer"/-->
+  <DataDef Name = "CommandSerializer">
+    <DataDef Name = "MsgStructure" >
+	  	<DataDef>FullByte</DataDef>
+	  	<DataDef>FullByte</DataDef>
+	  	<DataDef>MsgLength</DataDef>
+	  	<DataDef>DeviceID</DataDef>
+	  	<DataDef>CommandID</DataDef>
+	  	<DataDef>CheckSum</DataDef>
+	  	<DataDef>CheckSumInv</DataDef>
+	  	<DataDef>DataString</DataDef>
+	  </DataDef>
+  <DataDef Name = "CommandList">
+	  <DataDef Name = "NO_CMD" >
+	  	<DataDef Name = "CommandEnum" >NO_CMD</DataDef>
+	  	<DataDef Name = "CommandID" >5</DataDef>
+	  	<DataDef Name = "CmdDiscription" >This is an Invalid Command</DataDef>
+	  	<DataDef Name = "DataStructure" >
+	  		<DataDef>DataLength</DataDef>
+	  		<DataDef>DataString</DataDef>
+	  	</DataDef>
+	  </DataDef>
+    <DataDef Name = "EEP_WRITE" >
+	  	<DataDef Name = "CommandEnum" >EEP_WRITE</DataDef>
+	  	<DataDef Name = "CommandID" >1</DataDef>
+	  	<DataDef Name = "CmdDiscription" >Write Length number of values to EEP Register Address</DataDef>
+	  	<DataDef Name = "DataStructure" >
+	  		<DataDef>Address</DataDef>
+	  		<DataDef>DataLength</DataDef>
+	  		<DataDef>DataString</DataDef>
+	  	</DataDef>
+	  </DataDef>	
+      <DataDef Name = "EEP_READ" >
+	  	<DataDef Name = "CommandEnum" >EEP_READ</DataDef>
+	  	<DataDef Name = "CommandID" >2</DataDef>
+	  	<DataDef Name = "CmdDiscription" >Request Number of value from EEP Registry Address</DataDef>
+	  	<DataDef Name = "DataStructure" >
+	  		<DataDef>Address</DataDef>
+	  		<DataDef>DataLength</DataDef>
+	  	</DataDef>
+	  </DataDef>
+      <DataDef Name = "RAM_WRITE" >
+	  	<DataDef Name = "CommandEnum" >RAM_WRITE</DataDef>
+	  	<DataDef Name = "CommandID" >3</DataDef>
+	  	<DataDef Name = "CmdDiscription" >Write Length number of values to RAM Register Address</DataDef>
+	  	<DataDef Name = "DataStructure" >
+	  		<DataDef>Address</DataDef>
+	  		<DataDef>DataLength</DataDef>
+	  		<DataDef>DataString</DataDef>
+	  	</DataDef>
+	  </DataDef>
+      <DataDef Name = "RAM_READ" >
+	  	<DataDef Name = "CommandEnum" >RAM_READ</DataDef>
+	  	<DataDef Name = "CommandID" >4</DataDef>
+	  	<DataDef Name = "CmdDiscription" >Request Number of value from RAM Registry Address</DataDef>
+	  	<DataDef Name = "DataStructure" >
+	  		<DataDef>Address</DataDef>
+	  		<DataDef>DataLength</DataDef>
+	  	</DataDef>
+	  </DataDef>
+      <DataDef Name = "I_JOG" >
+	  	<DataDef Name = "CommandEnum" >I_JOG</DataDef>
+	  	<DataDef Name = "CommandID" >5</DataDef>
+	  	<DataDef Name = "CmdDiscription" >Send Timing Jog up to 43 servos</DataDef>
+	  	<DataDef Name = "DataStructure" >
+	  		<DataDef>DataString</DataDef>
+	  	</DataDef>
+	  </DataDef>
+      <DataDef Name = "S_JOG" >
+	  	<DataDef Name = "CommandEnum" >S_JOG</DataDef>
+	  	<DataDef Name = "CommandID" >6</DataDef>
+	  	<DataDef Name = "CmdDiscription" >Send Simultaneous Jog Command, up to 53 servos</DataDef>
+	  	<DataDef Name = "DataStructure" >
+	  		<DataDef>TimeTick</DataDef>
+	  		<DataDef>DataString</DataDef>
+	  	</DataDef>
+	  </DataDef>
+      <DataDef Name = "STAT" >
+	  	<DataDef Name = "CommandEnum" >STAT</DataDef>
+	  	<DataDef Name = "CommandID" >7</DataDef>
+	  	<DataDef Name = "CmdDiscription" >Status Error/detail Request</DataDef>
+	  	<DataDef Name = "DataStructure" >
+	  		<DataDef>DataString</DataDef>
+	  	</DataDef>
+	  </DataDef>
+      <DataDef Name = "ROLLBACK" >
+	  	<DataDef Name = "CommandEnum" >ROLLBACK</DataDef>
+	  	<DataDef Name = "CommandID" >8</DataDef>
+	  	<DataDef Name = "CmdDiscription" >Return to Factory Setting</DataDef>
+	  	<DataDef Name = "DataStructure" >
+	  		<DataDef>DataString</DataDef>
+	  	</DataDef>
+	  </DataDef>
+      <DataDef Name = "REBOOT" >
+	  	<DataDef Name = "CommandEnum" >REBOOT</DataDef>
+	  	<DataDef Name = "CommandID" >9</DataDef>
+	  	<DataDef Name = "CmdDiscription" >Reboot Servo</DataDef>
+	  	<DataDef Name = "DataStructure" >
+	  		<DataDef>DataString</DataDef>
+	  	</DataDef>
+	  </DataDef>
+      <DataDef Name = "EEP_WRITE_REPLY" >
+	  	<DataDef Name = "CommandEnum" >EEP_WRITE_REPLY</DataDef>
+	  	<DataDef Name = "CommandID" >65</DataDef>
+	  	<DataDef Name = "CmdDiscription" >Write to EEP Register Reply</DataDef>
+	  	<DataDef Name = "DataStructure" >
+	  		<DataDef>StatusByte</DataDef>
+	  		<DataDef>StatusByte</DataDef>
+	  	</DataDef>
+	  </DataDef>
+      <DataDef Name = "EEP_READ_REPLY" >
+	  	<DataDef Name = "CommandEnum" >EEP_READ_REPLY</DataDef>
+	  	<DataDef Name = "CommandID" >66</DataDef>
+	  	<DataDef Name = "CmdDiscription" >Read From EEP Register Repl</DataDef>
+	  	<DataDef Name = "DataStructure" >
+	  		<DataDef>Address</DataDef>
+	  		<DataDef>DataLength</DataDef>
+	  		<DataDef>DataString</DataDef>
+	  		<DataDef>StatusByte</DataDef>
+	  		<DataDef>StatusByte</DataDef>
+	  	</DataDef>
+	  </DataDef>
+      <DataDef Name = "RAM_WRITE_REPLY" >
+	  	<DataDef Name = "CommandEnum" >RAM_WRITE_REPLY</DataDef>
+	  	<DataDef Name = "CommandID" >67</DataDef>
+	  	<DataDef Name = "CmdDiscription" >Write to RAM Register Reply</DataDef>
+	  	<DataDef Name = "DataStructure" >
+	  		<DataDef>StatusByte</DataDef>
+	  		<DataDef>StatusByte</DataDef>
+	  	</DataDef>
+	  </DataDef>
+      <DataDef Name = "RAM_READ_REPLY" >
+	  	<DataDef Name = "CommandEnum" >RAM_READ_REPLY</DataDef>
+	  	<DataDef Name = "CommandID" >68</DataDef>
+	  	<DataDef Name = "CmdDiscription" >Read From RAM Register Reply</DataDef>
+	  	<DataDef Name = "DataStructure" >
+	  		<DataDef>Address</DataDef>
+	  		<DataDef>DataLength</DataDef>
+	  		<DataDef>DataString</DataDef>
+	  		<DataDef>StatusByte</DataDef>
+	  		<DataDef>StatusByte</DataDef>
+	  	</DataDef>
+	  </DataDef>
+      <DataDef Name = "I_JOG_REPLY" >
+	  	<DataDef Name = "CommandEnum" >I_JOG_REPLY</DataDef>
+	  	<DataDef Name = "CommandID" >69</DataDef>
+	  	<DataDef Name = "CmdDiscription" >Send Timing Jog Command Reply</DataDef>
+	  	<DataDef Name = "DataStructure" >
+	  		<DataDef>StatusByte</DataDef>
+	  		<DataDef>StatusByte</DataDef>
+	  	</DataDef>
+	  </DataDef>
+      <DataDef Name = "S_JOG_REPLY" >
+	  	<DataDef Name = "CommandEnum" >S_JOG_REPLY</DataDef>
+	  	<DataDef Name = "CommandID" >70</DataDef>
+	  	<DataDef Name = "CmdDiscription" >Send Simultaneous Jog Command Reply</DataDef>
+	  	<DataDef Name = "DataStructure" >
+	  		<DataDef>StatusByte</DataDef>
+	  		<DataDef>StatusByte</DataDef>
+	  	</DataDef>
+	  </DataDef>
+      <DataDef Name = "STAT_REPLY" >
+	  	<DataDef Name = "CommandEnum" >STAT_REPLY</DataDef>
+	  	<DataDef Name = "CommandID" >71</DataDef>
+	  	<DataDef Name = "CmdDiscription" >Status Error/detail Request Reply</DataDef>
+	  	<DataDef Name = "DataStructure" >
+	  		<DataDef>StatusByte</DataDef>
+	  		<DataDef>StatusByte</DataDef>
+	  	</DataDef>
+	  </DataDef>
+      <DataDef Name = "ROLLBACK_REPLY" >
+	  	<DataDef Name = "CommandEnum" >ROLLBACK_REPLY</DataDef>
+	  	<DataDef Name = "CommandID" >72</DataDef>
+	  	<DataDef Name = "CmdDiscription" >Return to Factory Setting Reply</DataDef>
+	  	<DataDef Name = "DataStructure" >
+	  		<DataDef>StatusByte</DataDef>
+	  		<DataDef>StatusByte</DataDef>
+	  	</DataDef>
+	  </DataDef>
+      <DataDef Name = "REBOOT_REPLY" >
+	  	<DataDef Name = "CommandEnum" >REBOOT_REPLY</DataDef>
+	  	<DataDef Name = "CommandID" >73</DataDef>
+	  	<DataDef Name = "CmdDiscription" >Reboot Servo Reply</DataDef>
+	  	<DataDef Name = "DataStructure" >
+	  		<DataDef>StatusByte</DataDef>
+	  		<DataDef>StatusByte</DataDef>
+	  	</DataDef>
+	  </DataDef>
+  </DataDef>
+  </DataDef>
+</DataDef>
+</ServiceProviderDefinition>

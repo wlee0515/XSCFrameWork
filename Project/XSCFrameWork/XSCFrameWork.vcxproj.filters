@@ -48,6 +48,42 @@
     <ClCompile Include="source\XSCBase\XSC_Scheduler.cxx">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source\XSCConnect\XSCConnectionMethod\XSC_ConnectionMethod.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\XSCConnect\XSCConnectionMethod\XSC_ConnectionMethod_Loop.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\XSCConnect\XSCConnectionMethod\XSC_ConnectionMethod_RS232.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\XSCConnect\XSCConnectionMethod\XSC_ConnectionMethod_TCPClient.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\XSCConnect\XSCConnectionMethod\XSC_ConnectionMethod_TCPServer.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\XSCConnect\XSCConnectionMethod\XSC_ConnectionMethod_UDPClient.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\XSCConnect\XSCConnectionMethod\XSC_ConnectionMethod_UDPServer.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\XSCConnect\XSC_Connection.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\XSCConnect\XSC_ConnectionProxy.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\XSCConnect\XSC_ConnectionServer.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="thirdparty\PracticalSockets\PracticalSocket.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="thirdparty\RS-232\rs232.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\XSCBase\XSC_Base.hxx">
@@ -62,13 +98,7 @@
     <ClInclude Include="include\XSCBase\XSC_TData.hxx">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\XSCBase\XSC_TDataPtr.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\XSCBase\XSC_TEnum.hxx">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\XSCBase\XSC_TMemoryBlockPtr.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\XSCBase\XSC_TypeLibrary.h">
@@ -111,6 +141,69 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\XSCBase\XSC_EnumTableProvider.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\XSCEnum\XSC_ByteDefinitionEnum.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\XSCEnum\XSC_ByteWidthEnum.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\XSCEnum\XSC_ConnectionEnum.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\XSCEnum\XSC_DataTypeEnum.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\XSCConnect\XSCConnectionMethod\XSC_ConnectionMethod.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\XSCConnect\XSCConnectionMethod\XSC_ConnectionMethod_Loop.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\XSCConnect\XSCConnectionMethod\XSC_ConnectionMethod_RS232.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\XSCConnect\XSCConnectionMethod\XSC_ConnectionMethod_TCPClient.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\XSCConnect\XSCConnectionMethod\XSC_ConnectionMethod_TCPServer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\XSCConnect\XSCConnectionMethod\XSC_ConnectionMethod_UDPClient.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\XSCConnect\XSCConnectionMethod\XSC_ConnectionMethod_UDPServer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\XSCConnect\XSC_Connection.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\XSCConnect\XSC_ConnectionProxy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\XSCConnect\XSC_ConnectionServer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\BClass\BClass_BracketTree.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\XSCEnum\XSC_ActionEnum.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="thirdparty\PracticalSockets\PracticalSocket.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="thirdparty\RS-232\rs232.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\XSCBase\XSC_TDataPtr.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\XSCBase\XSC_Common.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\XSCBase\XSC_TMemoryBlockPtr.hxx">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

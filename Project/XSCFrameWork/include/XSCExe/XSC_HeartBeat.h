@@ -1,9 +1,7 @@
 #ifndef XSC_HEART_BEAT_H
 #define XSC_HEART_BEAT_H
 
-#include "XSCBase/XSC_Base.hxx"
-#include "XSCBase/XSC_TData.hxx"
-#include "XSCBase/XSC_Scheduler.h"
+#include "XSCBase/XSC_Common.hxx"
 
 namespace XSC
 {

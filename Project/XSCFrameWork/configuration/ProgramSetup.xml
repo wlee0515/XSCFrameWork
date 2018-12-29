@@ -3,6 +3,9 @@
 	<DataDef Name = "SingletonProvider">
     <DataDef Name = "Scheduler">
     </DataDef>
+    <DataDef Name = "ConnectionServer">
+      <FileRef Name = "Connection Server">./ConfigurationFiles/ConnectionServerDefinition.xml</FileRef>	
+    </DataDef>
 	</DataDef>
   
   <Create Name="HeartBeat" TypeName = "HeartBeat">

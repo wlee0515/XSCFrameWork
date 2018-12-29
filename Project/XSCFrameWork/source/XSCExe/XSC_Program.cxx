@@ -1,13 +1,16 @@
 #include "XSCExe/XSC_Program.h"
-#include "XSCBase/XSC_Scheduler.h"
 #include "XSCExe/XSC_ParseXml.h"
 
 #include <iostream>
 #include <sstream>
 #include <string>
+#include <list>
 
 namespace XSC
 {
+
+  ADD_TYPE_FACTORY_WITH_NAME(XSC_Program, "Program");
+
   XSC_Program::XSC_Program()
     : mLogFileName("LogFile.txt")
     , mLogFilePath("./")

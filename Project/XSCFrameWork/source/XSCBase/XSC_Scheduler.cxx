@@ -1,3 +1,4 @@
+#include "XSCBase/XSC_TypeLibrary.h"
 #include "XSCBase/XSC_Scheduler.h"
 
 #include <thread>
@@ -6,6 +7,8 @@
 
 namespace XSC
 {
+
+  ADD_TYPE_FACTORY_WITH_NAME(XSC_Scheduler, "Scheduler");
 
   XSC_Scheduler::XSC_Scheduler() : mCycleCount(0), mBasePeriod(1.0)
   {
@@ -76,14 +79,11 @@ namespace XSC
 
   void XSC_Scheduler::runScheduler()
   {
-    if (0 != mExecutionTable.size())
+    if (false == mExecuteScheduler)
     {
-      if (false == mExecuteScheduler)
-      {
-        mExecuteScheduler = true;
-        mSchedulerThread = std::thread(&XSC_Scheduler::schedulerWorkerThread, this);
-        mSchedulerThread.detach();
-      }
+      mExecuteScheduler = true;
+      mSchedulerThread = std::thread(&XSC_Scheduler::schedulerWorkerThread, this);
+      mSchedulerThread.detach();
     }
   }
 

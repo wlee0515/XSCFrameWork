@@ -1,0 +1,40 @@
+<CommonDataBase>
+<DataDef Name = "CommonDataBase">
+  <ElmDef Label ="DATA_String" Count = "100"     DataType = "eString"   Value = "Test this string"     />
+  <ElmDef Label ="DATA_1"      Count = "30"      DataType = "eUInt8"    Value = "[1]"                  />
+  <ElmDef Label ="DATA_2"      Count = "30"      DataType = "eUInt16"   Value = "[2]"                  />
+  <ElmDef Label ="DATA_3"      Count = "30"      DataType = "eUInt32"   Value = "[3]"                  />
+  <ElmDef Label ="DATA_4"      Count = "30"      DataType = "eSInt8"    Value = "[4]"                  />
+  <ElmDef Label ="DATA_5"      Count = "30"      DataType = "eSInt16"   Value = "[5]"                  />
+  <ElmDef Label ="DATA_6"      Count = "30"      DataType = "eSInt32"   Value = "[6]"                  />
+  <ElmDef Label ="DATA_7"      Count = "30"      DataType = "eFloat32"  Value = "[7]"                  />
+  <ElmDef Label ="DATA_8"      Count = "30"      DataType = "eFloat64"  Value = "[8]"                  />
+
+
+  <ElmDef address = "0"  Label ="ID"                                  DataType = "eUInt32"  Value = "[6]" size = "1" ReadOnly = "1" min = "0" max = "253"/>
+  <ElmDef address = "1"  Label ="ACK_Policy"                          DataType = "eUInt16"  Value = "[7]" size = "1" access = "ReadWrite" min = "0" max = "2"/>
+	<ElmDef address = "2"  Label ="Alarm_LED_Policy"                    DataType = "eUInt8"  Value = "[8]" size = "1" access = "ReadWrite" min = "0" max = "127"/>
+  <ElmDef address = "12" Label ="Saturator_Slope"    Count = "100"    DataType = "eSInt16" value = "[6]" size = "2" access = "ReadWrite" min = "000" max = "32767"/>
+	<ElmDef address = "3"  Label ="Torque_Policy"                       DataType = "eSInt8"  Value = "[9]" size = "1" access = "ReadWrite" min = "0" max = "127"/>
+	<ElmDef address = "4"  Label ="Reserved"                            DataType = "eSInt8"  Value = "[10]" size = "1" />
+	<ElmDef address = "5"  Label ="Temperature_Max"                     DataType = "eSInt8"  Value = "[6]" size = "1" access = "ReadWrite" min = "0" max = "254"/>
+	<ElmDef address = "6"  Label ="Voltage_Min"                         DataType = "eSInt8"  Value = "[6]" size = "1" access = "ReadWrite" min = "0" max = "254"/>
+	<ElmDef address = "7"  Label ="Voltage_Max"                         DataType = "eSInt8"  Value = "[6]" size = "1" access = "ReadWrite" min = "0" max = "254"/>
+	<ElmDef address = "8"  Label ="Accel_Ratio"                         DataType = "eSInt8"  Value = "[6]" size = "1" access = "ReadWrite" min = "0" max = "50"/>
+	<ElmDef address = "9"  Label ="Max_Accel_Time"                      DataType = "eSInt8"  Value = "[6]" size = "1" access = "ReadWrite" min = "0" max = "254"/>
+	<ElmDef address = "10" Label ="Dead_Zone"                           DataType = "eSInt8"  Value = "[6]" size = "1" access = "ReadWrite" min = "0" max = "254"/>
+	<ElmDef address = "11" Label ="Saturator_Offset"                    DataType = "eSInt8"  Value = "[6]" size = "1" access = "ReadWrite" min = "0" max = "254"/>
+	<ElmDef address = "12" Label ="comomString"    Count = "100"    DataType = "eString" Value = "This String" size = "2" access = "ReadWrite" min = "000" max = "32767"/>
+
+  <!--
+  <ElmDef address = "12" Label ="NewStruc"    Count = "20"           DataType = "Struc" size = "2" access = "ReadWrite" min = "000" max = "32767">
+    <ElmDef address = "10" Label ="Dead_Zone"                           DataType = "UByte"  size = "1" access = "ReadWrite" min = "0" max = "254"/>
+    <ElmDef address = "11" Label ="Saturator_Offset"                    DataType = "UByte"  size = "1" access = "ReadWrite" min = "0" max = "254"/>
+    <ElmDef address = "12" Label ="NewStruc2"    Count = "20"           DataType = "Struc" size = "2" access = "ReadWrite" min = "000" max = "32767">
+      <ElmDef address = "10" Label ="Dead_Zone"                           DataType = "UByte"  size = "1" access = "ReadWrite" min = "0" max = "254"/>
+      <ElmDef address = "11" Label ="Saturator_Offset"                    DataType = "UByte"  size = "1" access = "ReadWrite" min = "0" max = "254"/>
+    </ElmDef>
+  </ElmDef>
+  -->
+</DataDef>
+</CommonDataBase>

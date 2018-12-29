@@ -1,0 +1,54 @@
+<ConnectionSeverDefinition>
+<DataDef Name = "Connection Server">
+	<ElmDef ConnectionKey = "MSG_FB_LOOP" ConnectionType = "Loop">
+		<DataDef Name = "ConnectionSetup">
+		</DataDef>
+	</ElmDef>
+	<ElmDef ConnectionKey = "COM2" ConnectionType = "RS232">
+		<DataDef Name = "ConnectionSetup">
+			<DataDef Name = "COM_PORT">1</DataDef>
+			<DataDef Name = "BaudRate">115200</DataDef>
+		</DataDef>
+	</ElmDef>
+	<ElmDef ConnectionKey = "COM3" ConnectionType = "RS232">
+		<DataDef Name = "ConnectionSetup">
+			<DataDef Name = "COM_PORT">2</DataDef>
+			<DataDef Name = "BaudRate">115200</DataDef>
+		</DataDef>
+	</ElmDef>
+	<ElmDef ConnectionKey = "COM4" ConnectionType = "RS232">
+		<DataDef Name = "ConnectionSetup">
+			<DataDef Name = "COM_PORT">3</DataDef>
+			<DataDef Name = "BaudRate">115200</DataDef>
+		</DataDef>
+	</ElmDef>
+	<ElmDef ConnectionKey = "DisplayServer" ConnectionType = "UDPClient">
+		<DataDef Name = "ConnectionSetup">
+			<DataDef Name = "IPAddress">127.0.0.1</DataDef>
+			<DataDef Name = "PortNumber">5000</DataDef>
+		</DataDef>
+	</ElmDef>
+	<ElmDef ConnectionKey = "MultiServer" ConnectionType = "UDPMulticast">
+		<DataDef Name = "ConnectionSetup">
+			<DataDef Name = "PortNumber">4000</DataDef>
+		</DataDef>
+	</ElmDef>
+  <ElmDef ConnectionKey = "TCPClieant" ConnectionType = "TCPClient">
+		<DataDef Name = "ConnectionSetup">
+			<DataDef Name = "IPAddress">127.0.0.1</DataDef>
+			<DataDef Name = "PortNumber">5001</DataDef>
+		</DataDef>
+	</ElmDef>
+	<ElmDef ConnectionKey = "TCPServer" ConnectionType = "TCPServer">
+		<DataDef Name = "ConnectionSetup">
+			<DataDef Name = "PortNumber">5001</DataDef>
+		</DataDef>
+	</ElmDef>
+	<ElmDef ConnectionKey = "HTTP_SERVER" ConnectionType = "TCPServer">
+		<DataDef Name = "ConnectionSetup">
+			<DataDef Name = "PortNumber">80</DataDef>
+		</DataDef>
+	</ElmDef>
+
+</DataDef>
+</ConnectionSeverDefinition>

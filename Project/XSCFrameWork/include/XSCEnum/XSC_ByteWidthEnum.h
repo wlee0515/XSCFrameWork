@@ -1,25 +1,27 @@
 #ifndef  XSC_BYTE_WIDTH_ENUM_H
 #define  XSC_BYTE_WIDTH_ENUM_H
 
-#include "XSCBase\XSC_TEnum.hxx"
-#include "XSCEnum\XSC_DataTypeEnum.h"
+#include "XSCBase/XSC_TEnum.hxx"
+#include "XSCEnum/XSC_DataTypeEnum.h"
 
 namespace XSC
 {
   enum eByteWidth
   {
-      eByteWidth_1
+    eByteWidth_1
     , eByteWidth_2
     , eByteWidth_4
   };
+}
 
-  ENUM_DEFINITION_START(XSC::eByteWidth)
-    ENUM_DEFINITION_DECLARE(XSC::eByteWidth_1,      "1ByteWidth");
-    ENUM_DEFINITION_DECLARE(XSC::eByteWidth_2,      "2ByteWidth");
-    ENUM_DEFINITION_DECLARE(XSC::eByteWidth_4,      "4ByteWidth");
-  ENUM_DEFINITION_END
+ENUM_DEFINITION_START(XSC::eByteWidth)
+  ENUM_DEFINITION_DECLARE(XSC::eByteWidth_1, "1ByteWidth");
+  ENUM_DEFINITION_DECLARE(XSC::eByteWidth_2, "2ByteWidth");
+  ENUM_DEFINITION_DECLARE(XSC::eByteWidth_4, "4ByteWidth");
+ENUM_DEFINITION_END
 
-
+namespace XSC
+{
   inline eDataType getByteWidthDataType_SInt(const eByteWidth& iDataType)
   {
     switch (iDataType)
