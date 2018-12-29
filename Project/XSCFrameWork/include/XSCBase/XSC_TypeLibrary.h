@@ -3,7 +3,7 @@
 
 #include "XSCBase/XSC_Base.hxx"
 #include "XSCUtility/XSC_Logger.h"
-#include "XSCUtility/XSC_Typename"
+#include "XSCUtility/XSC_Typename.h"
 
 namespace XSC {
 
