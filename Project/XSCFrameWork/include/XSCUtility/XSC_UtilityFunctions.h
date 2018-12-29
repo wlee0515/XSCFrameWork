@@ -243,7 +243,7 @@ namespace XSC
       std::stringstream wAbsolutePathStream;
       for (unsigned int wi = 0; wi < wAbsolutePathToken.size() - 1; ++wi)
       {
-        wAbsolutePathStream << wAbsolutePathToken[wi] << '\\';
+        wAbsolutePathStream << wAbsolutePathToken[wi] << '/';
       }
 
       wAbsolutePathStream << wAbsolutePathToken.back();
