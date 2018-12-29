@@ -43,12 +43,20 @@ namespace XSC
     removeEntryPoint(iEntryPoint);
     EntryPointList& wList = mExecutionTable[iTier];
 
+    bool wEntryAdded = false;
     for (unsigned int wIndex = 0; wIndex < wList.size(); ++wIndex)
     {
       if (nullptr == wList[wIndex])
       {
         wList[wIndex] = &iEntryPoint;
+        wEntryAdded = true;
+        break;
       }
+    }
+
+    if (false == wEntryAdded)
+    {
+      wList.push_back(&iEntryPoint);
     }
   }
 
