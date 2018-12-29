@@ -6,6 +6,8 @@
 #include "XSCUtility/XSC_Typename.h"
 #include "XSCBase/XSC_TypeLibrary.h"
 
+#include <stdint.h>
+
 namespace XSC {
 
   template <typename T_Singleton>
@@ -71,7 +73,12 @@ namespace XSC {
     template <typename T_Singleton>
     XSC_SingletonContainer<T_Singleton>& getSingletonContainer()
     {
-      std::map<void*, void*>::iterator wSingletonPair = mSingletonContainerList.find(static_cast<void*>(XSC_SingletonContainer<T_Singleton>::createContainer));
+      typedef XSC_SingletonContainer<T_Singleton>* (*T_FunctionPtr)();
+      
+      T_FunctionPtr wFunctionPtr = XSC_SingletonContainer<T_Singleton>::createContainer;
+      std::uintptr_t wFunctionAddress = reinterpret_cast<std::uintptr_t>(wFunctionPtr);
+
+      std::map<std::uintptr_t, void*>::iterator wSingletonPair = mSingletonContainerList.find(wFunctionAddress);
 
       if (wSingletonPair != mSingletonContainerList.end())
       {
@@ -79,7 +86,7 @@ namespace XSC {
       }
 
       XSC_SingletonContainer<T_Singleton>* wNewContainer = XSC_SingletonContainer<T_Singleton>::createContainer();
-      mSingletonContainerList[static_cast<void*>(&XSC_SingletonContainer<T_Singleton>::createContainer)] = static_cast<void*>(wNewContainer);
+      mSingletonContainerList[wFunctionAddress] = static_cast<void*>(wNewContainer);
 
       std::string wName;
       wName = XSC::XSC_TypeLibrary::GetTypeName<T_Singleton>();
@@ -96,7 +103,7 @@ namespace XSC {
       return *wNewContainer;
     }
 
-    std::map<void*, void*> mSingletonContainerList;
+    std::map<std::uintptr_t, void*> mSingletonContainerList;
   };
 
   namespace Singleton
