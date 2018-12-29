@@ -129,7 +129,6 @@
     <ClCompile Include="source\XSCConnect\XSC_Connection.cxx" />
     <ClCompile Include="source\XSCConnect\XSC_ConnectionProxy.cxx" />
     <ClCompile Include="source\XSCConnect\XSC_ConnectionServer.cxx" />
-    <ClCompile Include="source\XSCExe\XSC_DynamicTypeDefinition.cxx" />
     <ClCompile Include="source\XSCExe\XSC_HeartBeat.cxx" />
     <ClCompile Include="source\XSCExe\XSC_NodeViewer.cxx" />
     <ClCompile Include="source\XSCExe\XSC_ParseXml.cxx" />
@@ -167,7 +166,6 @@
     <ClInclude Include="include\XSCEnum\XSC_ByteWidthEnum.h" />
     <ClInclude Include="include\XSCEnum\XSC_ConnectionEnum.h" />
     <ClInclude Include="include\XSCEnum\XSC_DataTypeEnum.h" />
-    <ClInclude Include="include\XSCExe\XSC_DynamicTypeDefinition.h" />
     <ClInclude Include="include\XSCExe\XSC_HeartBeat.h" />
     <ClInclude Include="include\XSCExe\XSC_NodeViewer.h" />
     <ClInclude Include="include\XSCExe\XSC_ParseXml.h" />

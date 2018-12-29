@@ -24,9 +24,6 @@
     <ClCompile Include="source\XSCBase\XSC_SingletonProvider.cxx">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\XSCExe\XSC_DynamicTypeDefinition.cxx">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="source\XSCExe\XSC_HeartBeat.cxx">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -102,9 +99,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\XSCBase\XSC_TypeLibrary.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\XSCExe\XSC_DynamicTypeDefinition.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\XSCExe\XSC_HeartBeat.h">

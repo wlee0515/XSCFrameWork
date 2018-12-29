@@ -9,3 +9,5 @@ Project/.vs/XSCFrameWork/v14/.suo
 *.opendb
 *.log
 *.user
+Project/log/LogFile.txt
+Project/XSCFrameWork.sdf
