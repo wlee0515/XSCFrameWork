@@ -2,9 +2,9 @@
 #define XSC_SINGLETON_PROVIDER_HXX
 
 #include "XSCBase/XSC_Base.hxx"
+#include "XSCBase/XSC_TypeLibrary.h"
 #include "XSCBase/XSC_SafePointer.hxx"
 #include "XSCUtility/XSC_Typename.h"
-#include "XSCBase/XSC_TypeLibrary.h"
 
 #include <stdint.h>
 
