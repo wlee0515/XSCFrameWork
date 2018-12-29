@@ -10,4 +10,5 @@ fi
 echo "Creatiing new build directory {$BuildDir}"
 sudo mkdir $BuildDir
 
+sudo chmod -R 766 $BuildDir
 g++ -o $BuildDir/XSCRun -I XSCFrameWork/include/ -I XSCFrameWork/thirdparty/ XSCFrameWork/thirdparty/*/*.cpp XSCFrameWork/source/*/*.cxx XSCFrameWork/source/*.cxx
