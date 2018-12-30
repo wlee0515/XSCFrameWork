@@ -11,6 +11,10 @@
         <FileRef Name = "CommonDataBase">./ConfigurationFiles/CommonDataBaseDefinition.xml</FileRef>
       </DataDef>
     </DataDef>
+    <DataDef Name = "HttpProvider">
+      <DataDef Name = "ConnectionProxy" ConnectionKey = "HTTP_SERVER"/>
+      <DataDef Name = "HtmlRootFolder">./html</DataDef>
+    </DataDef>
 	</DataDef>
   
   <Create Name="HeartBeat" TypeName = "HeartBeat">

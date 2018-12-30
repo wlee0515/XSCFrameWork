@@ -1,0 +1,437 @@
+﻿<!doctype html>
+<html>
+<head>
+  <script src="Javascript/DivTable.js"></script>
+  <script>
+    //Global Variables
+
+    var gClickHandle = {
+      mCategory : "",
+      mData : "",
+      mTime : 0
+    }
+
+    //main program
+    setInterval(update, 200);
+
+    function update()
+    {
+      fetchScopeList();
+      fetchContentList();
+      fetchContentDataList();
+    }
+    
+    function processClick( iData, iCategory )
+    {
+      var d = new Date();
+      var t = d.getTime();
+      var dt =  t  -  gClickHandle.mTime;
+      if ( dt < 1000)
+      {
+        if( gClickHandle.mCategory == iCategory)
+        {
+          if( gClickHandle.mData == iData)
+          {
+            if (iCategory == "ctx" )
+            {
+              var wScope = document.getElementById("Select_ScopeList");
+              var wSelectedIndex = getSelectedDivTreeIndex('Div_ContentList');
+
+              var wObj = {
+                cmd: "SendRequest",
+                argument: {
+                  Scope: wScope.value,
+                  ContentID: wSelectedIndex, //wContent.selectedIndex,
+                  RequestLine: "add"
+                }
+              }
+
+              sendObj(wObj, null);
+            }
+            else if (iCategory == "obj" )
+            {
+              var wScope = document.getElementById("Select_ScopeList");
+              var wSelectedIndex = getSelectedDivTreeIndex('Div_ContentList');
+
+              var wObj = {
+                cmd: "SendRequest",
+                argument: {
+                  Scope: wScope.value,
+                  ContentID: wSelectedIndex, //wContent.selectedIndex,
+                  RequestLine: "add " + gClickHandle.mData
+                }
+              }
+
+              sendObj(wObj, null);
+            }
+            else if (iCategory == "data" )
+            {
+            }
+          }
+        }
+      }
+      
+      gClickHandle.mCategory = iCategory;
+      gClickHandle.mData = iData;
+      gClickHandle.mTime = t;
+      
+    }
+
+    function sendObj(iObject, iCallback) {
+      sendPostRequest("NodeSurfer", iObject, iCallback);
+    }
+
+    function fetchScopeList() {
+
+      var wObj = {
+        cmd: "ScopeList",
+        argument: {
+        }
+      }
+
+      sendObj(wObj, function (iReply) {
+
+        var wReplyObj = JSON.parse(iReply);
+
+        if (null == wReplyObj) {
+          return;
+        }
+
+        if (null == wReplyObj.reply) {
+          return;
+        }
+
+        if (null != wReplyObj.reply.ScopeList) {
+
+          updateArrayToSelection("Select_ScopeList", wReplyObj.reply.ScopeList);
+        }
+
+      });
+    }
+
+    function fetchContentList() {
+
+      var wScope = document.getElementById("Select_ScopeList");
+
+      var wObj = {
+        cmd: "ContentList",
+        argument: {
+          Scope: wScope.value
+        }
+      }
+
+      sendObj(wObj, function (iReply) {
+
+        var wReplyObj = JSON.parse(iReply);
+
+        if (null == wReplyObj) {
+          return;
+        }
+
+        if (null == wReplyObj.reply) {
+          return;
+        }
+
+        if (null != wReplyObj.reply.ContentList) {
+
+          var wList = new Array();
+          for (var wi = 0; wi < wReplyObj.reply.ContentList.length; ++wi) {
+            wList.push([wReplyObj.reply.ContentList[wi]]);
+          }
+
+
+          updateArrayToDivTree('Div_ContentList', wList, function () {
+              
+              var wSelectedIndex = getSelectedDivTreeIndex('Div_ContentList');
+              processClick(wSelectedIndex, "ctx");
+            }
+          );
+          
+        }
+
+      });
+    }
+
+
+    function fetchContentDataList() {
+
+      var wScope = document.getElementById("Select_ScopeList");
+      
+      var wSelectedIndex = getSelectedDivTreeIndex('Div_ContentList');
+
+      var wObj = {
+        cmd: "ContentInfo",
+        argument: {
+          Scope: wScope.value,
+          ContentID: wSelectedIndex //wContent.selectedIndex
+        }
+      }
+
+      sendObj(wObj, function (iReply) {
+
+        var wReplyObj = JSON.parse(iReply);
+
+        if (null == wReplyObj) {
+          return;
+        }
+
+        if (null == wReplyObj.reply) {
+          return;
+        }
+
+        if (null != wReplyObj.reply.DataTable) {
+
+          var wTable = document.getElementById("Div_ContentInfo_Data");
+          wTable.style.display = "inline-block"
+
+          var wList = new Array();
+          for (var wi = 0; wi < wReplyObj.reply.DataTable.length; ++wi) {
+            wList.push([wReplyObj.reply.DataTable[wi].Label, wReplyObj.reply.DataTable[wi].Value]);
+          }
+
+          updateArrayToDivTable('Div_ContentInfo_Data', wList, "");
+
+        }
+        else
+        {
+          var wList = new Array();
+          updateArrayToDivTable('Div_ContentInfo_Data', wList, "");
+
+          var wTable = document.getElementById("Div_ContentInfo_Data");
+          wTable.style.display = "none"
+        }
+
+        if (null != wReplyObj.reply.ArrayTable) {
+
+          var wTable = document.getElementById("Div_ContentInfo_Array");
+          wTable.style.display = "inline-block"
+
+          var wList = new Array();
+          for (var wi = 0; wi < wReplyObj.reply.ArrayTable.length; ++wi) {
+            wList.push([wReplyObj.reply.ArrayTable[wi].Label, wReplyObj.reply.ArrayTable[wi].Value]);
+          }
+
+          updateArrayToDivTable('Div_ContentInfo_Array', wList, function () {
+              
+              var wSelectedI = getSelectedDivTableDataArray('Div_ContentInfo_Array');
+              processClick(wSelectedI[0], "obj");
+            });
+
+        }
+        else {
+          var wList = new Array();
+          updateArrayToDivTable('Div_ContentInfo_Array', wList, "");
+
+          var wTable = document.getElementById("Div_ContentInfo_Array");
+          wTable.style.display = "none"
+        }
+
+        if (null != wReplyObj.reply.ObjectTable) {
+
+          var wTable = document.getElementById("Div_ContentInfo_Object");
+          wTable.style.display = "inline-block"
+
+          var wList = new Array();
+          for (var wi = 0; wi < wReplyObj.reply.ObjectTable.length; ++wi) {
+            wList.push([wReplyObj.reply.ObjectTable[wi]]);
+          }
+
+          updateArrayToDivTable('Div_ContentInfo_Object', wList,  function () {
+              
+              var wSelectedI = getSelectedDivTableDataArray('Div_ContentInfo_Object');
+              processClick(wSelectedI[0], "obj");
+            });
+
+        }
+        else {
+          var wList = new Array();
+          updateArrayToDivTable('Div_ContentInfo_Object', wList, "");
+
+          var wTable = document.getElementById("Div_ContentInfo_Object");
+          wTable.style.display = "none"
+        }
+
+        if (null != wReplyObj.reply.FunctionTable) {
+
+          var wTable = document.getElementById("Div_ContentInfo_Function");
+          wTable.style.display = "inline-block"
+
+          var wList = new Array();
+          for (var wi = 0; wi < wReplyObj.reply.FunctionTable.length; ++wi) {
+            wList.push([wReplyObj.reply.FunctionTable[wi]]);
+          }
+
+          updateArrayToDivTable('Div_ContentInfo_Function', wList, "");
+
+        }
+        else
+        {
+          var wList = new Array();
+          updateArrayToDivTable('Div_ContentInfo_Function', wList, "");
+
+          var wTable = document.getElementById("Div_ContentInfo_Function");
+          wTable.style.display = "none"
+        }
+      });
+    }
+
+
+    function sendInput() {
+
+      var wScope = document.getElementById("Select_ScopeList");
+      var iText = document.getElementById("InputTextBox");
+      
+      var wSelectedIndex = getSelectedDivTreeIndex('Div_ContentList');
+
+      var wObj = {
+        cmd: "SendRequest",
+        argument: {
+          Scope: wScope.value,
+          ContentID: wSelectedIndex, //wContent.selectedIndex,
+          RequestLine: iText.value
+        }
+      }
+
+      sendObj(wObj, null);
+
+    }
+
+    function handleEnterKey(e) {
+      if (e.keyCode == 13) {
+        sendInput();
+      }
+    }
+
+  </script>
+
+  <style type="text/css">
+
+    #Div_ContentList
+    {
+      width: 90%;
+      height : calc( 100% - 80px);
+      overflow-y: auto;
+      font-family: monospace;
+      resize : y-axis;
+      border-style: solid;
+      cursor: pointer;
+      white-space: nowrap;
+      padding: 5px;
+      margin:5px;
+    }
+    
+    #Div_ContentInfo_Data,
+    #Div_ContentInfo_Array,
+    #Div_ContentInfo_Object,
+    #Div_ContentInfo_Function
+    {
+      width: 100%;
+      height: 45vh;
+      font-family: monospace;
+      overflow: scroll;
+      border-style: solid;
+      resize: both;
+      cursor: pointer;
+      display: inline-block;
+      white-space: nowrap;
+      padding: 5px;
+      background-color: white;
+      color: black;
+    }
+
+    .Div_ContentInfo_Data_tr,
+    .Div_ContentInfo_Array_tr,
+    .Div_ContentInfo_Object_tr,
+    .Div_ContentInfo_Function_tr
+    {
+      overflow: visible;
+      white-space: nowrap;
+    }
+
+    .Div_ContentInfo_Data_tr .td_1,
+    .Div_ContentInfo_Array_tr .td_1,
+    .Div_ContentInfo_Object_tr .td_1,
+    .Div_ContentInfo_Function_tr .td_1
+    {
+      width: 50%;
+      overflow: hidden;
+    }
+
+    .Div_ContentInfo_Data_tr .td_2,
+    .Div_ContentInfo_Array_tr .td_2, 
+    .Div_ContentInfo_Object_tr .td_2, 
+    .Div_ContentInfo_Function_tr .td_2
+    {
+      width: auto;
+      overflow: hidden;
+    }
+
+
+    .NotSelected {
+      background-color: transparent;
+    }
+
+    .Selected {
+      background-color: cyan;
+    }
+    
+    body
+    {
+      width: 100%;
+      height : 100vh;
+      overflow : hidden;
+      padding : 0px;
+      margin : 0px;
+    }
+    
+    #ScopeDisplay
+    {
+      width: 100%;
+      height : 100%;
+    }
+    
+    #ScopeContentDisplayArea
+    {
+      width: 30%;
+      height : 100%;
+      vertical-align: text-top;
+      display : inline-block;
+      padding: 5px;
+      margin : 0px;
+    }
+    
+    #ContentInfoDisplayArea
+    {
+      width: 65%;
+      height : 100%;
+      vertical-align: text-top;
+      display : inline-block;
+      padding: 5px;
+      margin : 0px;
+    }
+  </style>
+
+</head>
+<body>
+
+  <div id="ScopeDisplay">
+    <div id="ScopeContentDisplayArea">
+      <span>Scope Selection : </span>
+      <select id="Select_ScopeList"></select>
+      <div id="Div_ContentList"></div>
+      <div>
+        <input id="InputTextBox" autocomplete="off" onkeypress="handleEnterKey(event)" /><button onclick="sendInput()">Send</button>
+      </div>
+    </div>
+    <div id="ContentInfoDisplayArea">
+      <div id="Div_ContentInfo_Data"></div>
+      <div id="Div_ContentInfo_Array"></div>
+      <div>
+        <div id="Div_ContentInfo_Object"></div>
+        <div id="Div_ContentInfo_Function"></div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

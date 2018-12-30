@@ -137,6 +137,7 @@
     <ClCompile Include="source\XSCMemoryBlock\XSC_MemoryBlock.cxx" />
     <ClCompile Include="source\XSCMemoryBlock\XSC_MemoryBlockDefinition.cxx" />
     <ClCompile Include="source\XSCRunMain.cxx" />
+    <ClCompile Include="source\XSCServiceProvider\XSC_HttpProvider.cxx" />
     <ClCompile Include="source\XSCService\XSC_MemoryBlock_HttpAdapter.cxx" />
     <ClCompile Include="source\XSCService\XSC_NodeViewer_HttpAdapter.cxx" />
     <ClCompile Include="thirdparty\PracticalSockets\PracticalSocket.cpp" />

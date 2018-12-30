@@ -96,6 +96,9 @@
     <ClCompile Include="source\XSCExe\XSC_Program.cxx">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source\XSCServiceProvider\XSC_HttpProvider.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\XSCBase\XSC_Base.hxx">
