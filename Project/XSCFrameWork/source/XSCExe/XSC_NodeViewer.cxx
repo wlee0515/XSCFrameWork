@@ -837,7 +837,7 @@ namespace XSC
     {
       oStream << "Command List:" << std::endl;
       oStream << "\"add\" : Add Object to Table of Content" << std::endl;
-      oStream << "\"rmv\" : Remove Object to Table of Content" << std::endl;
+      oStream << "\"rmv\" : Remove Object from Table of Content" << std::endl;
       oStream << "\"scp\" : Select the current Scope" << std::endl;
       oStream << "\"ctx\" : Select the current Content" << std::endl;
       oStream << "\"see\" : Add and Select the Object to Table of Content" << std::endl;

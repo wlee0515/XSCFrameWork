@@ -120,7 +120,7 @@ namespace XSC
 
       std::getline(std::cin, wInput);
 
-      Log::Logger::getGlobalLogger().logMessage(Log::eDisplay, "\n\n\n");
+      std::cout << "\n\n\n";
     }
 
     if (wInput == "reboot")
