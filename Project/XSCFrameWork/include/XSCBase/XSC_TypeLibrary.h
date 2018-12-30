@@ -118,10 +118,15 @@ namespace XSC {
 }
 
 #define ADD_TYPE_FACTORY(TYPE)                  \
-  bool ATTL_DECLARATION_##TYPE = XSC::XSC_TypeLibrary::AddTypeToLibrary( #TYPE, &XSC::XSC_TypeLibrary::typeFactory<TYPE>);
+namespace{                                      \
+  bool ATTL_DECLARATION_##TYPE = XSC::XSC_TypeLibrary::AddTypeToLibrary( #TYPE, &XSC::XSC_TypeLibrary::typeFactory<TYPE>); \
+}                                               \
+
 
 #define ADD_TYPE_FACTORY_WITH_NAME(TYPE, NameStr)                  \
-  bool ATTL_DECLARATION_##TYPE = XSC::XSC_TypeLibrary::AddTypeToLibrary( NameStr, &XSC::XSC_TypeLibrary::typeFactory<TYPE>);
+namespace {                                                        \
+  bool ATTL_DECLARATION_##TYPE = XSC::XSC_TypeLibrary::AddTypeToLibrary(NameStr, &XSC::XSC_TypeLibrary::typeFactory<TYPE>);\
+}                                                                  \
 
 
 #endif
