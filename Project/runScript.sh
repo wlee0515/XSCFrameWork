@@ -1,2 +1,4 @@
 #!/bin/bash
-build/XSCRun -file XSCFrameWork/configuration/ProgramSetup.xml
+cd XSCFrameWork
+../build/XSCRun -file configuration/ProgramSetup.xml
+cd ../
