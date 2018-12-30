@@ -2,7 +2,7 @@
 
 namespace XSC
 {
-  ADD_TYPE_FACTORY_WITH_NAME(XSC_MemoryBlockDefinition, "DefinedMemoryBlock");
+  ADD_TYPE_FACTORY_WITH_NAME(XSC_DefinedMemoryBlock, "DefinedMemoryBlock");
 
   void XSC_DefinedMemoryBlock::SClassSetup()
   {

@@ -65,7 +65,7 @@ namespace {
 
 namespace XSC
 {
-  ADD_TYPE_FACTORY_WITH_NAME(XSC_MemoryBlockDefinition, "MemoryBlock");
+  ADD_TYPE_FACTORY_WITH_NAME(XSC_MemoryBlock, "MemoryBlock");
 
   XSC_MemoryBlock::XSC_MemoryBlock()
     : mMemoryBlockSize(0)
