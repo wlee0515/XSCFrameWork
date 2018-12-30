@@ -13,7 +13,7 @@ namespace XSC
 
   }
 
-  XSC_NodeTree::XSC_NodeTree(std::string iName, XSC_Object& iObj)
+  XSC_NodeTree::XSC_NodeTree(const std::string& iName, XSC_Object& iObj)
     : mNodeName(iName)
   {
     mObjRef.setPtr(iObj);
@@ -58,7 +58,7 @@ namespace XSC
     XSC_Object::distroyedCallback(iElement);
   }
 
-  void XSC_NodeTree::addBranch(std::string iName, XSC_Object& iObj)
+  void XSC_NodeTree::addBranch(const std::string& iName, XSC_Object& iObj)
   {
     for (unsigned int wi = 0; wi < mBranchList.size(); ++wi)
     {
@@ -280,7 +280,7 @@ namespace XSC
     XSC_Object::SClassSetup();
   }
 
-  void XSC_NodeViewer::addScope(std::string& iScope, XSC_Object& iObject)
+  void XSC_NodeViewer::addScope(const std::string& iScope, XSC_Object& iObject)
   {
     mNodeRoot.addBranch(iScope, iObject);
   }
