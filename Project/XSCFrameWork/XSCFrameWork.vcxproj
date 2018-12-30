@@ -133,7 +133,12 @@
     <ClCompile Include="source\XSCExe\XSC_NodeViewer.cxx" />
     <ClCompile Include="source\XSCExe\XSC_ParseXml.cxx" />
     <ClCompile Include="source\XSCExe\XSC_Program.cxx" />
+    <ClCompile Include="source\XSCMemoryBlock\XSC_DefinedMemoryBlock.cxx" />
+    <ClCompile Include="source\XSCMemoryBlock\XSC_MemoryBlock.cxx" />
+    <ClCompile Include="source\XSCMemoryBlock\XSC_MemoryBlockDefinition.cxx" />
     <ClCompile Include="source\XSCRunMain.cxx" />
+    <ClCompile Include="source\XSCService\XSC_MemoryBlock_HttpAdapter.cxx" />
+    <ClCompile Include="source\XSCService\XSC_NodeViewer_HttpAdapter.cxx" />
     <ClCompile Include="thirdparty\PracticalSockets\PracticalSocket.cpp" />
     <ClCompile Include="thirdparty\RS-232\rs232.cpp" />
     <ClCompile Include="thirdparty\tinyXML\tinyxml2.cpp" />
@@ -170,6 +175,13 @@
     <ClInclude Include="include\XSCExe\XSC_NodeViewer.h" />
     <ClInclude Include="include\XSCExe\XSC_ParseXml.h" />
     <ClInclude Include="include\XSCExe\XSC_Program.h" />
+    <ClInclude Include="include\XSCMemoryBlock\XSC_DefinedMemoryBlock.h" />
+    <ClInclude Include="include\XSCMemoryBlock\XSC_MemoryBlock.h" />
+    <ClInclude Include="include\XSCMemoryBlock\XSC_MemoryBlockDefinition.h" />
+    <ClInclude Include="include\XSCServiceProvider\XSC_HttpProvider.h" />
+    <ClInclude Include="include\XSCServiceProvider\XSC_JsonReplyProvider.hxx" />
+    <ClInclude Include="include\XSCService\XSC_MemoryBlock_HttpAdapter.h" />
+    <ClInclude Include="include\XSCService\XSC_NodeViewer_HttpAdapter.h" />
     <ClInclude Include="include\XSCUtility\XSC_Logger.h" />
     <ClInclude Include="include\XSCUtility\XSC_SpaceModel.hxx" />
     <ClInclude Include="include\XSCUtility\XSC_StringTools.h" />

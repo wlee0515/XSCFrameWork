@@ -24,18 +24,6 @@
     <ClCompile Include="source\XSCBase\XSC_SingletonProvider.cxx">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\XSCExe\XSC_HeartBeat.cxx">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="source\XSCExe\XSC_NodeViewer.cxx">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="source\XSCExe\XSC_ParseXml.cxx">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="source\XSCExe\XSC_Program.cxx">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="thirdparty\tinyXML\tinyxml2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -79,6 +67,33 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="thirdparty\RS-232\rs232.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\XSCService\XSC_NodeViewer_HttpAdapter.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\XSCMemoryBlock\XSC_DefinedMemoryBlock.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\XSCMemoryBlock\XSC_MemoryBlock.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\XSCMemoryBlock\XSC_MemoryBlockDefinition.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\XSCService\XSC_MemoryBlock_HttpAdapter.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\XSCExe\XSC_HeartBeat.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\XSCExe\XSC_NodeViewer.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\XSCExe\XSC_ParseXml.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\XSCExe\XSC_Program.cxx">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -198,6 +213,27 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\XSCBase\XSC_TMemoryBlockPtr.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\XSCServiceProvider\XSC_JsonReplyProvider.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\XSCServiceProvider\XSC_HttpProvider.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\XSCService\XSC_NodeViewer_HttpAdapter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\XSCService\XSC_MemoryBlock_HttpAdapter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\XSCMemoryBlock\XSC_DefinedMemoryBlock.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\XSCMemoryBlock\XSC_MemoryBlock.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\XSCMemoryBlock\XSC_MemoryBlockDefinition.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

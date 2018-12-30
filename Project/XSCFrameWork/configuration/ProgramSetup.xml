@@ -6,10 +6,23 @@
     <DataDef Name = "ConnectionServer">
       <FileRef Name = "Connection Server">./ConfigurationFiles/ConnectionServerDefinition.xml</FileRef>	
     </DataDef>
+    <DataDef Name = "DefinedMemoryBlock">
+      <DataDef Name = "Definition">
+        <FileRef Name = "CommonDataBase">./ConfigurationFiles/CommonDataBaseDefinition.xml</FileRef>
+      </DataDef>
+    </DataDef>
 	</DataDef>
   
   <Create Name="HeartBeat" TypeName = "HeartBeat">
     <DataDef Name = "Tier">2</DataDef>
   </Create>
+
+  <Create Name="NodeViewerHttpAdapter" TypeName = "NodeViewerHttpAdapter">
+    <DataDef Name="UriAddress">NodeSurfer</DataDef>
+  </Create>
   
+  <Create Name="MemoryBlockHttpAdapter" TypeName = "MemoryBlockHttpAdapter">
+    <DataDef Name="UriAddress">SharedMem</DataDef>
+  </Create>
+
 </ProgramSetup>

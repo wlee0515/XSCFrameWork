@@ -2,6 +2,7 @@
 #include "XSCExe/XSC_Program.h"
 #include "XSCBase/XSC_Scheduler.h"
 #include "XSCConnect/XSC_ConnectionServer.h"
+#include "XSCMemoryBlock/XSC_DefinedMemoryBlock.h"
 
 int main(int argc, char *argv[])
 {
@@ -21,6 +22,7 @@ int main(int argc, char *argv[])
     // Create all non-referened Singletons
     XSC::XSC_Scheduler&           wScheduler        = XSC::Singleton::getSingleton<XSC::XSC_Scheduler>();
     XSC::XSC_ConnectionServer&    wConnectionServer = XSC::Singleton::getSingleton<XSC::XSC_ConnectionServer>();
+    XSC::XSC_DefinedMemoryBlock&  wDefinedMemoryBlock = XSC::Singleton::getSingleton<XSC::XSC_DefinedMemoryBlock>();
 
     // Ge a reference to the current program
     XSC::XSC_Program& wProgram = XSC::XSC_Program::getGlobalProgram();
