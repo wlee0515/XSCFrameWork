@@ -1,7 +1,7 @@
 #ifndef BCLASS_TYPENAME_MAPPER_H
 #define BCLASS_TYPENAME_MAPPER_H
 
-#include "XSCUtility\XSC_StringTools.h"
+#include "XSCUtility/XSC_StringTools.h"
 #include <string>
 
 namespace XSC
