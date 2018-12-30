@@ -91,4 +91,7 @@ namespace XSC
     TEnum mData;
   };
 }
+
+#define ENUM_FORWARD_DECLARATION(TEnumType)   namespace XSC {typedef XSC_TEnum<TEnumType> XSC_##TEnumType;}
+
 #endif
