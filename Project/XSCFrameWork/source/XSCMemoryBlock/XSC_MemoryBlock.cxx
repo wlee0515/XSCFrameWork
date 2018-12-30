@@ -105,7 +105,7 @@ namespace XSC
   {
     if (nullptr != this->getDataRef(iDefinition.getLabel()))
     {
-      return false;
+      return nullptr;
     }
 
     XSC_VoidMemPtr* wNewDataPtr(nullptr);

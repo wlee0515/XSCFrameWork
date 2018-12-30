@@ -8,7 +8,7 @@
 #include <vector>
 #include "BClass_BracketTree.h"
 #include "BClass_TypenameMapper.h"
-#include "XSCUtility\XSC_StringTools.h"
+#include "XSCUtility/XSC_StringTools.h"
 
 namespace XSC
 {

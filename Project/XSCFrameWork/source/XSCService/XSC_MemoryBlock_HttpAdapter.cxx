@@ -49,7 +49,7 @@ namespace
   template<typename T>
   void addMemPtrMapToJSONMap(XSC::BClassJSON::JSONObjMap& oJSONMap, const std::map < std::string, T*> & iMemPtrMap)
   {
-    for (std::map < std::string, T*>::const_iterator wIt = iMemPtrMap.begin(); wIt != iMemPtrMap.end(); ++wIt)
+    for (typename std::map < std::string, T*>::const_iterator wIt = iMemPtrMap.begin(); wIt != iMemPtrMap.end(); ++wIt)
     {
       if (nullptr != wIt->second)
       {
