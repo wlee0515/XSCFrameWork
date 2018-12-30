@@ -56,7 +56,7 @@ namespace XSC
 
   };
 }
-
+/*
 namespace XSC {
   namespace EnumMap {
     template <typename TEnumType>
@@ -71,11 +71,11 @@ namespace XSC {
     }
   }
 }
-
+*/
 
 #define ENUM_DEFINITION_START(TEnumType )                                                    \
 namespace XSC {  namespace EnumMap {                                                         \
-inline const std::map<TEnumType, std::string>& getEnumConversionTable(const TEnumType&)      \
+const std::map<TEnumType, std::string>& getEnumConversionTable(const TEnumType&)      \
 {                                                                                            \
   std::map<TEnumType, std::string>* gTable = XSC::EnumTableProvider::getGlobalTable<TEnumType>(); \
   if (nullptr == gTable)                                                                     \
