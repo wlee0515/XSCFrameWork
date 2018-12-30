@@ -8,7 +8,6 @@
 
 namespace XSC
 {
-
   ADD_TYPE_FACTORY_WITH_NAME(XSC_Program, "Program");
 
   XSC_Program::XSC_Program()
