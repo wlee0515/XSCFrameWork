@@ -41,7 +41,7 @@ namespace {
   template<typename T>
   T* findLabelInMap(std::map<std::string, T*> iMap, const std::string& iLabel)
   {
-    std::map<std::string, T*>::iterator wIt = iMap.find(iLabel);
+    typename std::map<std::string, T*>::iterator wIt = iMap.find(iLabel);
 
     if (iMap.end() != wIt)
     {
@@ -53,7 +53,7 @@ namespace {
   template<typename T>
   const T* findLabelInMap_const(const std::map<std::string, T*> iMap, const std::string& iLabel)
   {
-    std::map<std::string, T*>::const_iterator wIt = iMap.find(iLabel);
+    typename std::map<std::string, T*>::const_iterator wIt = iMap.find(iLabel);
 
     if (iMap.end() != wIt)
     {
