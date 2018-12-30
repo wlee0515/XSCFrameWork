@@ -145,6 +145,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\BClass\BClass_BracketTree.h" />
+    <ClInclude Include="include\BClass\BClass_JSON.h" />
+    <ClInclude Include="include\BClass\BClass_TypenameMapper.h" />
+    <ClInclude Include="include\BClass\BClass_TypenamePtrMapper.h" />
     <ClInclude Include="include\XSCBase\XSC_Base.hxx" />
     <ClInclude Include="include\XSCBase\XSC_Common.hxx" />
     <ClInclude Include="include\XSCBase\XSC_EnumTableProvider.h" />

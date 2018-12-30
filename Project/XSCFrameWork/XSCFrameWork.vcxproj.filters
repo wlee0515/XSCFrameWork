@@ -236,5 +236,14 @@
     <ClInclude Include="include\XSCMemoryBlock\XSC_MemoryBlockDefinition.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\BClass\BClass_JSON.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\BClass\BClass_TypenameMapper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\BClass\BClass_TypenamePtrMapper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

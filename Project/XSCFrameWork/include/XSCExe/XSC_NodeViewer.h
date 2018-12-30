@@ -14,11 +14,11 @@ namespace XSC
   {
   public:
     XSC_NodeTree();
-    XSC_NodeTree(std::string iName, XSC_Object& iObj);
+    XSC_NodeTree(const std::string& iName, XSC_Object& iObj);
 
     virtual void distroyedCallback(XSC_Void& iElement);
 
-    void addBranch(std::string iName, XSC_Object& iObj);
+    void addBranch(const std::string& iName, XSC_Object& iObj);
 
     void deleteBranch(unsigned int iBranchIndex);
     void deleteBranch(const std::string& iBranchName);
@@ -54,7 +54,7 @@ namespace XSC
 
     virtual void SClassSetup();
     
-    void addScope(std::string& iScope, XSC_Object& iObject);
+    void addScope(const std::string& iScope, XSC_Object& iObject);
 
     bool getScopeList(std::vector<std::string>& oTable);
 
