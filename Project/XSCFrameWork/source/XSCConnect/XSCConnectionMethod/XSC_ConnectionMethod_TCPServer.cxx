@@ -80,6 +80,8 @@ namespace XSC {
 
         while (1)
         {
+
+          LOG_DISPLAY("Accepting TCP at Port ["<< mPortNumber << "]");
           TCPSocket *wClient = mSocket->accept();
           std::thread wClientThread(&XSC_ConnectionMethod_TCPServer::TCPClientThread, this, wClient);
           wClientThread.detach();
@@ -106,12 +108,14 @@ namespace XSC {
   {
     if (NULL == iClientSocket)
     {
+      LOG_ERROR("Client Socket for TCP server at Port [" << mPortNumber << "] not available");
       return;
     }
 
     XSC_ConnectionProxy* wConnection = mConnectedProxy.getPtr();
     if (nullptr == wConnection)
     {
+      LOG_ERROR("Connection Proxy for TCP server at Port [" << mPortNumber << "] not available");
       return;
     }
 
