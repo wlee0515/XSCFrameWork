@@ -46,7 +46,7 @@
 	</ElmDef>
 	<ElmDef ConnectionKey = "HTTP_SERVER" ConnectionType = "TCPServer">
 		<DataDef Name = "ConnectionSetup">
-			<DataDef Name = "PortNumber">80</DataDef>
+			<DataDef Name = "PortNumber">8080</DataDef>
 		</DataDef>
 	</ElmDef>
 
