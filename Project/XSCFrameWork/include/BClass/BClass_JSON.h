@@ -328,7 +328,11 @@ namespace XSC
     {
       if (nullptr == mJSONObjPtr)
       {
-        const_cast<JSONObjBase*>(mJSONObjPtr) = new JSONObjBase();
+        BClassJSON* wThis = const_cast<BClassJSON*>(this);
+        if (nullptr != wThis)
+        {
+          wThis->mJSONObjPtr = new JSONObjBase();
+        }
       }
       return *mJSONObjPtr;
     }
