@@ -319,7 +319,7 @@ namespace XSC
     {
       if (nullptr == mJSONObjPtr)
       {
-        mJSONObjPtr = new JSONObjBase;
+        mJSONObjPtr = new JSONObjBase();
       }
       return *mJSONObjPtr;
     }
@@ -328,7 +328,7 @@ namespace XSC
     {
       if (nullptr == mJSONObjPtr)
       {
-        const_cast<JSONObjBase*>(mJSONObjPtr) = new JSONObjBase;
+        const_cast<JSONObjBase*>(mJSONObjPtr) = new JSONObjBase();
       }
       return *mJSONObjPtr;
     }
