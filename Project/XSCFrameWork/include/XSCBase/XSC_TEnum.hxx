@@ -14,14 +14,14 @@ namespace XSC
   {
   public:
 
-    XSC_TEnum()
+    XSC_TEnum() : mData(static_cast<TEnum>(0))
     {
-
+      const std::map<TEnum, std::string>& wTable = XSC::EnumMap::getEnumConversionTable(mData);
     }
 
     XSC_TEnum(TEnum iEnum) : mData(iEnum)
     {
-
+      const std::map<TEnum, std::string>& wTable = XSC::EnumMap::getEnumConversionTable(mData);
     }
 
     virtual void setValue(const std::string& iValue)
@@ -46,15 +46,17 @@ namespace XSC
 
     static bool convertEnumToString(const TEnum& iEnumValue, std::string& oStringValue)
     {
-      TEnum wEnum;
-      const std::map<TEnum, std::string>& wTable = XSC::EnumMap::getEnumConversionTable(wEnum);
+      const std::map<TEnum, std::string>* wTable = XSC::EnumTableProvider::getGlobalTable<TEnum>();
 
-      typename std::map<TEnum, std::string>::const_iterator wIt = wTable.find(iEnumValue);
-
-      if (wTable.end() != wIt)
+      if (nullptr != wTable)
       {
-        oStringValue = wIt->second;
-        return true;
+        typename std::map<TEnum, std::string>::const_iterator wIt = wTable->find(iEnumValue);
+
+        if (wTable->end() != wIt)
+        {
+          oStringValue = wIt->second;
+          return true;
+        }
       }
 
       return false;
@@ -62,15 +64,17 @@ namespace XSC
 
     static bool convertStringToEnum(const std::string& iStringValue, TEnum& oEnumValue)
     {
-      TEnum wEnum;
-      const std::map<TEnum, std::string>& wTable = XSC::EnumMap::getEnumConversionTable(wEnum);
+      const std::map<TEnum, std::string>* wTable = XSC::EnumTableProvider::getGlobalTable<TEnum>();
 
-      for (typename std::map<TEnum, std::string>::const_iterator wIt = wTable.begin(); wIt != wTable.end(); ++wIt)
+      if (nullptr != wTable)
       {
-        if (wIt->second == iStringValue)
+        for (typename std::map<TEnum, std::string>::const_iterator wIt = wTable->begin(); wIt != wTable->end(); ++wIt)
         {
-          oEnumValue = wIt->first;
-          return true;
+          if (wIt->second == iStringValue)
+          {
+            oEnumValue = wIt->first;
+            return true;
+          }
         }
       }
 

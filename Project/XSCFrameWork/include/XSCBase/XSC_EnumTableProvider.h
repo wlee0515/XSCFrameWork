@@ -27,7 +27,7 @@ namespace XSC
     }
 
     template <typename TEnum>
-    bool setGlobalEnumString(const TEnum& iEnum, const std::string& iStringValue)
+    static bool setGlobalEnumString(const TEnum& iEnum, const std::string& iStringValue)
     {
       return getGlobal().setEnumString<TEnum>(iEnum, iStringValue);
     }
@@ -114,15 +114,4 @@ inline const std::map<TEnumType, std::string>& getEnumConversionTable(TEnumType)
 }}}                                                                                          \
 
 
-/*
-#define ENUM_DEFINITION_START(TEnumType )                                                    \
-namespace XSC {  namespace {                                                                 \
-
-#define ENUM_DEFINITION_DECLARE( TEnumValue , TStringValue)                                  \
-  const pair##TEnumValue = setGlobalEnumString(TEnumValue, TStringValue);                    \
-
-
-#define ENUM_DEFINITION_END                                                                  \
-}}                                                                                           \
-*/
 #endif
