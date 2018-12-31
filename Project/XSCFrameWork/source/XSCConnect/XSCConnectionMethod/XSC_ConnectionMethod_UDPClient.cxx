@@ -40,7 +40,7 @@ namespace XSC {
 
     }
     catch (SocketException &e) {
-      cerr << e.what() << endl;
+      LOG_TRACE("UDP Client at Port [" << mPortNumber << "] :" << e.what());
       delete wSocket;
       wSocket = nullptr;
     }
@@ -143,12 +143,12 @@ namespace XSC {
         delete iClientSocket;
       }
       catch (SocketException &e) {
-        LOG_TRACE(e.what());
+        LOG_TRACE("UDP Client at Port [" << mPortNumber << "] :" << e.what());
         return;
       }
     }
     catch (SocketException &e) {
-      LOG_TRACE(e.what());
+      LOG_TRACE("UDP Client at Port [" << mPortNumber << "] :" << e.what());
       return;
     }
   }

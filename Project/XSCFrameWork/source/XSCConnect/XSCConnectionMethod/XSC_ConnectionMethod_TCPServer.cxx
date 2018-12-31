@@ -50,7 +50,7 @@ namespace XSC {
         }
       }
       catch (SocketException &e) {
-        LOG_TRACE(e.what());
+        LOG_TRACE("TCP Server at Port [" << mPortNumber << "] :" << e.what());
         return false;
       }
 
@@ -97,11 +97,11 @@ namespace XSC {
         }
       }
       catch (SocketException &e) {
-        LOG_TRACE(e.what());
+        LOG_TRACE("TCP Server at Port [" << mPortNumber << "] :" << e.what());
       }
     }
     catch (SocketException &e) {
-      LOG_TRACE(e.what());
+      LOG_TRACE("TCP Server at Port [" << mPortNumber << "] :" << e.what());
       return;
     }
 
@@ -174,12 +174,12 @@ namespace XSC {
         delete iClientSocket;
       }
       catch (SocketException &e) {
-        LOG_TRACE(e.what());
+        LOG_TRACE("TCP Server at Port [" << mPortNumber << "] :" << e.what());
         return;
       }
     }
     catch (SocketException &e) {
-      LOG_TRACE(e.what());
+      LOG_TRACE("TCP Server at Port [" << mPortNumber << "] :" << e.what());
       return;
     }
   }
