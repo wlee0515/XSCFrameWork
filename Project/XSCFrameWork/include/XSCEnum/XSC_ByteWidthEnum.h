@@ -12,16 +12,11 @@ namespace XSC
     , eByteWidth_2
     , eByteWidth_4
   };
-}
 
-ENUM_DEFINITION_START(XSC::eByteWidth)
-  ENUM_DEFINITION_DECLARE(XSC::eByteWidth_1, "1ByteWidth");
-  ENUM_DEFINITION_DECLARE(XSC::eByteWidth_2, "2ByteWidth");
-  ENUM_DEFINITION_DECLARE(XSC::eByteWidth_4, "4ByteWidth");
-ENUM_DEFINITION_END
+  ENUM_DEFINITION_DECLARE(XSC, eByteWidth_1, "1ByteWidth");
+  ENUM_DEFINITION_DECLARE(XSC, eByteWidth_2, "2ByteWidth");
+  ENUM_DEFINITION_DECLARE(XSC, eByteWidth_4, "4ByteWidth");
 
-namespace XSC
-{
   inline eDataType getByteWidthDataType_SInt(const eByteWidth& iDataType)
   {
     switch (iDataType)

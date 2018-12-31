@@ -10,6 +10,16 @@ namespace XSC
   {
   public:
 
+    class TableEntry 
+    {
+    public:
+      template<typename TEnumType>
+      TableEntry(TEnumType iEnumValue, const std::string& iStringValue)
+      {
+        EnumTableProvider::setGlobalEnumString(iEnumValue, iStringValue);
+      }
+    };
+
     EnumTableProvider();
     virtual ~EnumTableProvider();
     static EnumTableProvider& getGlobal();
@@ -62,7 +72,7 @@ namespace XSC
     bool setEnumString(const TEnum& iEnum, const std::string& iStringValue )
     {
       std::map<TEnum, std::string>* wTable = createTable<TEnum>();
-      if (nullptr == wTable)
+      if (nullptr != wTable)
       {
         wTable->operator[](iEnum) = iStringValue;
       }
@@ -75,43 +85,10 @@ namespace XSC
 
   };
 }
-/*
-namespace XSC {
-  namespace EnumMap {
-    template <typename TEnumType>
-    inline const std::map<TEnumType, std::string>& getEnumConversionTable(const TEnumType&)
-    {
-      std::map<TEnumType, std::string>* gTable = XSC::EnumTableProvider::getGlobalTable<TEnumType>();
-      if (nullptr == gTable)
-      {
-        gTable = EnumTableProvider::createGlobalTable<TEnumType>();
-      }
-      return *gTable;
-    }
-  }
-}
-*/
 
-
-
-#define ENUM_DEFINITION_START(TEnumType )                                                    \
-namespace XSC {  namespace EnumMap {                                                         \
-inline const std::map<TEnumType, std::string>& getEnumConversionTable(TEnumType)             \
-{                                                                                            \
-  std::map<TEnumType, std::string>* gTable = XSC::EnumTableProvider::getGlobalTable<TEnumType>(); \
-  if (nullptr == gTable)                                                                     \
-  {                                                                                          \
-     gTable = EnumTableProvider::createGlobalTable<TEnumType>();                             \
-
-
-#define ENUM_DEFINITION_DECLARE( TEnumValue , TStringValue)                                  \
-    gTable->operator[](TEnumValue) = TStringValue;                                           \
-
-
-#define ENUM_DEFINITION_END                                                                  \
-  }                                                                                          \
-  return *gTable;                                                                            \
-}}}                                                                                          \
-
+#define ENUM_DEFINITION_DECLARE( Namespace, TEnumValue , TStringValue)                                      \
+namespace{                                                                                                  \
+    const XSC::EnumTableProvider::TableEntry TEnumValue##_EnumMapConv(Namespace::TEnumValue, TStringValue); \
+}                                                                                                           \
 
 #endif

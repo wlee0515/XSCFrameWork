@@ -16,12 +16,10 @@ namespace XSC
 
     XSC_TEnum() : mData(static_cast<TEnum>(0))
     {
-      const std::map<TEnum, std::string>& wTable = XSC::EnumMap::getEnumConversionTable(mData);
     }
 
     XSC_TEnum(TEnum iEnum) : mData(iEnum)
     {
-      const std::map<TEnum, std::string>& wTable = XSC::EnumMap::getEnumConversionTable(mData);
     }
 
     virtual void setValue(const std::string& iValue)
