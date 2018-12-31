@@ -47,7 +47,7 @@ namespace XSC
     static bool convertEnumToString(const TEnum& iEnumValue, std::string& oStringValue)
     {
       TEnum wEnum;
-      const std::map<TEnum, std::string> wTable = XSC::EnumMap::getEnumConversionTable(wEnum);
+      const std::map<TEnum, std::string>& wTable = XSC::EnumMap::getEnumConversionTable(wEnum);
 
       typename std::map<TEnum, std::string>::const_iterator wIt = wTable.find(iEnumValue);
 
@@ -92,6 +92,5 @@ namespace XSC
   };
 }
 
-#define ENUM_FORWARD_DECLARATION(TEnumType)   namespace XSC {typedef XSC_TEnum<TEnumType> XSC_##TEnumType;}
 
 #endif

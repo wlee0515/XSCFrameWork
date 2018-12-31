@@ -27,6 +27,13 @@ namespace XSC
     }
 
     template <typename TEnum>
+    bool setGlobalEnumString(const TEnum& iEnum, const std::string& iStringValue)
+    {
+      return getGlobal().setEnumString<TEnum>(iEnum, iStringValue);
+    }
+
+
+    template <typename TEnum>
     std::map<TEnum, std::string>* getTable() const
     {
       std::string wClassName = typeid(TEnum).name();
@@ -51,6 +58,18 @@ namespace XSC
       return wTable;
     }
 
+    template <typename TEnum>
+    bool setEnumString(const TEnum& iEnum, const std::string& iStringValue )
+    {
+      std::map<TEnum, std::string>* wTable = createTable<TEnum>();
+      if (nullptr == wTable)
+      {
+        wTable->operator[](iEnum) = iStringValue;
+      }
+
+      return true;
+    }
+
   private:
     std::map<std::string, void*> mEnumTableList;
 
@@ -73,6 +92,8 @@ namespace XSC {
 }
 */
 
+
+
 #define ENUM_DEFINITION_START(TEnumType )                                                    \
 namespace XSC {  namespace EnumMap {                                                         \
 inline const std::map<TEnumType, std::string>& getEnumConversionTable(const TEnumType&)      \
@@ -92,4 +113,16 @@ inline const std::map<TEnumType, std::string>& getEnumConversionTable(const TEnu
   return *gTable;                                                                            \
 }}}                                                                                          \
 
+
+/*
+#define ENUM_DEFINITION_START(TEnumType )                                                    \
+namespace XSC {  namespace {                                                                 \
+
+#define ENUM_DEFINITION_DECLARE( TEnumValue , TStringValue)                                  \
+  const pair##TEnumValue = setGlobalEnumString(TEnumValue, TStringValue);                    \
+
+
+#define ENUM_DEFINITION_END                                                                  \
+}}                                                                                           \
+*/
 #endif
