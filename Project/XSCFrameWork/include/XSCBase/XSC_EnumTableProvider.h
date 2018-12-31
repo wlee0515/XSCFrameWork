@@ -96,7 +96,7 @@ namespace XSC {
 
 #define ENUM_DEFINITION_START(TEnumType )                                                    \
 namespace XSC {  namespace EnumMap {                                                         \
-inline const std::map<TEnumType, std::string>& getEnumConversionTable(const TEnumType&)      \
+inline const std::map<TEnumType, std::string>& getEnumConversionTable(TEnumType)             \
 {                                                                                            \
   std::map<TEnumType, std::string>* gTable = XSC::EnumTableProvider::getGlobalTable<TEnumType>(); \
   if (nullptr == gTable)                                                                     \
