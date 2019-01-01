@@ -34,57 +34,45 @@ namespace XSC
       Logger()
         : mFileName("LogFile.txt")
         , mFilePath("./")
-        , mLogLock(false)
       {
       }
 
 
       inline void logMessage(const eLogType iLogType, const std::string& iLogMessage)
       {
-        bool wExecuted = false;
-        while (false == wExecuted)
+        std::stringstream wLogString;
+
+        switch (iLogType) {
+        case eDisplay:
+          wLogString << "DISP";
+          break;
+        case eWarnning:
+          wLogString << "WARN";
+          break;
+        case eTrace:
+          wLogString << "TRACE";
+          break;
+        case eDebug1:
+          wLogString << "DEBUG1";
+          break;
+        case eDebug2:
+          wLogString << "DEBUG2";
+          break;
+        case eDebug3:
+          wLogString << "DEBUG3";
+          break;
+        default:
+          break;
+        }
+
+        wLogString << ":" << tools::printTime() << " " << iLogMessage;
+        mLogQueue.push(wLogString.str());
+
+        for (std::map<callback_FPtr, unsigned int>::iterator wIt = mLogSucscribers.begin(); wIt != mLogSucscribers.end(); ++wIt)
         {
-          if (false == mLogLock)
+          if (0 != (iLogType & wIt->second))
           {
-            mLogLock = true;
-            std::stringstream wLogString;
-
-            switch (iLogType) {
-            case eDisplay:
-              wLogString << "DISP";
-              break;
-            case eWarnning:
-              wLogString << "WARN";
-              break;
-            case eTrace:
-              wLogString << "TRACE";
-              break;
-            case eDebug1:
-              wLogString << "DEBUG1";
-              break;
-            case eDebug2:
-              wLogString << "DEBUG2";
-              break;
-            case eDebug3:
-              wLogString << "DEBUG3";
-              break;
-            default:
-              break;
-            }
-
-            wLogString << ":" << tools::printTime() << " " << iLogMessage;
-            mLogQueue.push(wLogString.str());
-
-            for (std::map<callback_FPtr, unsigned int>::iterator wIt = mLogSucscribers.begin(); wIt != mLogSucscribers.end(); ++wIt)
-            {
-              if (0 != (iLogType & wIt->second))
-              {
-                wIt->first(iLogType, iLogMessage);
-              }
-            }
-
-            mLogLock = false;
-            wExecuted = true;
+            wIt->first(iLogType, iLogMessage);
           }
         }
       }
@@ -93,20 +81,14 @@ namespace XSC
       {
         if (mLogQueue.size() != 0)
         {
-          std::queue<std::string> wTempLogQueue;
-          wTempLogQueue.swap(mLogQueue);
-
           std::ofstream wFileStream(mFilePath + "./" + mFileName, std::fstream::app);
 
-          if (true == wFileStream.is_open())
+          while (0 != mLogQueue.size())
           {
-            while (0 != wTempLogQueue.size())
-            {
-              std::string wEntry = wTempLogQueue.front();
-              wTempLogQueue.pop();
-              wFileStream << wEntry << std::endl;
-            }
+            wFileStream << mLogQueue.front() << std::endl;
+            mLogQueue.pop();
           }
+
           wFileStream.close();
         }
       }
@@ -154,7 +136,6 @@ namespace XSC
       }
 
     private:
-      bool mLogLock;
       std::string mFileName;
       std::string mFilePath;
       std::queue<std::string> mLogQueue;
