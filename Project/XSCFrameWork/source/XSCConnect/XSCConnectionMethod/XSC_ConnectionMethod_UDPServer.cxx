@@ -100,7 +100,7 @@ namespace XSC {
             std::string wRequest(wBuffer, wResponseLength);
             std::vector<std::string> wResponse;
 
-            bool wCompleted = wConnection->sendConnectionRequest(wRequest, wResponse);
+            wConnection->sendConnectionRequest(wRequest, wResponse);
 
             for (unsigned int wi = 0; wi < wResponse.size(); ++wi)
             {

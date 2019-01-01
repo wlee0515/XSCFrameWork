@@ -65,7 +65,7 @@ namespace XSC {
 
     mThreadList.clear();
 
-    return true;
+    return wState;
   }
 
   bool XSC_ConnectionMethod_UDPClient::SClassStop()
