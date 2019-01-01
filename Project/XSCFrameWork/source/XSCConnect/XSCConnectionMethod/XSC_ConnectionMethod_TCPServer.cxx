@@ -33,13 +33,20 @@ namespace XSC {
 
   bool XSC_ConnectionMethod_TCPServer::SClassStart()
   {
+    LOG_DISPLAY("TCP at Port [" << mPortNumber << "] : TCP Server Start");
+
     bool wState = XSC_ConnectionMethod::SClassStart();
+
+    LOG_DISPLAY("TCP at Port [" << mPortNumber << "] : TCP Server Parent Start end");
     if (true == wState)
     {
       try {
         if (NULL == mSocket)
         {
-          mSocket = new TCPServerSocket(mPortNumber); 
+
+          LOG_DISPLAY("TCP at Port [" << mPortNumber << "] : TCP Server Create Socket");
+          mSocket = new TCPServerSocket(mPortNumber);
+          LOG_DISPLAY("TCP at Port [" << mPortNumber << "] : TCP Server Create Socket End");
         }
       }
       catch (SocketException &e) {
@@ -47,11 +54,14 @@ namespace XSC {
         return false;
       }
 
+      LOG_DISPLAY("TCP at Port [" << mPortNumber << "] : TCP Server Create Thread");
       mMainServerThread = std::thread(&XSC_ConnectionMethod_TCPServer::TCPServerThread, this);
 
+      LOG_DISPLAY("TCP at Port [" << mPortNumber << "] : TCP Server Thread Created");
       return true;
     }
 
+    LOG_DISPLAY("TCP at Port [" << mPortNumber << "] : TCP Server Start Failed");
     return false;
   }
 
@@ -83,6 +93,7 @@ namespace XSC {
 
         while (1)
         {
+          LOG_DISPLAY("Accepting TCP at Port [" << mPortNumber << "]");
           TCPSocket *wClient = mSocket->accept();
           std::thread wClientThread(&XSC_ConnectionMethod_TCPServer::TCPClientThread, this, wClient);
           wClientThread.detach();

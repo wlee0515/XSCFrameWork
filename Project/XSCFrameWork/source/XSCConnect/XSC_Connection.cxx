@@ -31,6 +31,7 @@ namespace XSC {
 
   bool XSC_Connection::SClassStart()
   {
+    LOG_DISPLAY("XSC_Connection: SClass Start Called");
     refreshConnection();
     return XSC_ConnectionProxy::SClassStart();
   }
@@ -55,7 +56,13 @@ namespace XSC {
 
   void XSC_Connection::refreshConnection()
   {
+
+    LOG_DISPLAY("XSC_Connection: Cleaning previose connection");
+
     deleteConnection();
+
+    LOG_DISPLAY("XSC_Connection: Creating new connection of type [" << mConnectionType << "]");
+
     XSC_ConnectionMethod* wMethod = nullptr;
     switch (mConnectionType)
     {
@@ -85,15 +92,21 @@ namespace XSC {
 
     if (nullptr != wMethod)
     {
+      LOG_DISPLAY("XSC_Connection: Setting up new connection of type [" << mConnectionType << "]");
+
       wMethod->SClassSetup();
       wMethod->SClassStart();
       wMethod->setConnectionProxy(*this);
       mConnectionMethod.setPtr(*wMethod);
+      LOG_DISPLAY("XSC_Connection: Setting up new connection of type [" << mConnectionType << "] complete");
+
     }
   }
 
   XSC_ConnectionMethod& XSC_Connection::getConnectionMethod()
   {
+    LOG_DISPLAY("XSC_Connection: getConnection() of type [" << mConnectionType << "] called");
+
     bool wMakeInstance = false;
     if (nullptr == mConnectionMethod.getPtr())
     {
