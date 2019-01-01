@@ -112,8 +112,6 @@ namespace XSC
   int XSC_Program::runNodeViewer()
   {
     std::string wInput("");
-    std::string wCurrentScope = mDisplayName;
-    unsigned int wCurrentContentIndex = 0;
 
     while ((wInput != "exit") && (wInput != "reboot"))
     {

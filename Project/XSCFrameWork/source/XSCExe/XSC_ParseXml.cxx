@@ -310,9 +310,7 @@ namespace XSC
 
     tinyxml2::XMLNode* findXMLNodeWithName(tinyxml2::XMLNode& iXMLNode, const std::string& iSubNodeName)
     {
-
       tinyxml2::XMLNode* wNode = &iXMLNode;
-      bool wState = true;
 
       while (nullptr != wNode)
       {

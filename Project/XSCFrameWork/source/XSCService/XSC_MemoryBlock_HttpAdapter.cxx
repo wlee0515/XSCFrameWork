@@ -65,8 +65,8 @@ namespace XSC
 
   XSC_MemoryBlockHttpAdapter::PacketHeader::PacketHeader() : mPacketHead("SHAREMEMRPLY")
     , mHeaderLength(0)
-    , mDataType(eBinaryData)
     , mDataMapVersion(0)
+    , mDataType(eBinaryData)
     , mDataLength(0)
   {
   }
