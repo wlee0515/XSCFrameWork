@@ -56,17 +56,21 @@ namespace XSC {
 
   bool XSC_ConnectionMethod_TCPServer::SClassStop()
   {
+    std::cout << "TCPServer Stop - start" <<std::endl;
     if (nullptr != mSocket)
     {
+      std::cout << "deleting socket" << std::endl;
       delete mSocket;
       mSocket = nullptr;
     }
 
     if (true == mMainServerThread.joinable())
     {
+      std::cout << "wait for thread" << std::endl;
       mMainServerThread.join();
     }
 
+    std::cout << "TCPServer Stop - end" << std::endl;
     return XSC_ConnectionMethod::SClassStop();
   }
 
