@@ -33,6 +33,9 @@ int main(int argc, char *argv[])
     wState = wProgram.ProgramMain(argc, argv);
   }
 
-  system("pause");
+  std::cout << std::endl;
+  std::cout << "Main Program Exited" << std::endl;
+  std::cout << "Good Bye" << std::endl;
+
   return 0;
 }
