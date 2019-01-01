@@ -235,7 +235,6 @@ namespace XSC
 
   void XSC_Object::SClassSetup()
   {
-    bool wState = true;
     for (XSC_Object::TObjectContainer::iterator wIt = mObjectRefList.begin(); wIt != mObjectRefList.end(); ++wIt)
     {
       XSC_Object* wObjectPtr = std::get<0>(*wIt);

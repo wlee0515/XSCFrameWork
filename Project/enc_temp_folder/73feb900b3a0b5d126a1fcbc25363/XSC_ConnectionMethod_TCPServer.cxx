@@ -37,7 +37,7 @@ namespace XSC {
     if (true == wState)
     {
       try {
-        if (nullptr == mSocket)
+        if (NULL == mSocket)
         {
           mSocket = new TCPServerSocket(mPortNumber);
         }

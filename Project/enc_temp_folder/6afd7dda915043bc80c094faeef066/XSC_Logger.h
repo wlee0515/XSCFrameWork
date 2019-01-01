@@ -35,11 +35,10 @@ namespace XSC
         : mFileName("LogFile.txt")
         , mFilePath("./")
       {
-        mLogQueue.clear();
       }
 
 
-      inline void logMessage(const eLogType& iLogType, const std::string& iLogMessage)
+      inline void logMessage(const eLogType iLogType, const std::string& iLogMessage)
       {
         std::stringstream wLogString;
 
@@ -69,14 +68,11 @@ namespace XSC
         wLogString << ":" << tools::printTime() << " " << iLogMessage;
         mLogQueue.push_back(wLogString.str());
 
-        if (0 != mLogSucscribers.size())
+        for (std::map<callback_FPtr, unsigned int>::iterator wIt = mLogSucscribers.begin(); wIt != mLogSucscribers.end(); ++wIt)
         {
-          for (std::map<callback_FPtr, unsigned int>::iterator wIt = mLogSucscribers.begin(); wIt != mLogSucscribers.end(); ++wIt)
+          if (0 != (iLogType & wIt->second))
           {
-            if (0 != (iLogType & wIt->second))
-            {
-              wIt->first(iLogType, iLogMessage);
-            }
+            wIt->first(iLogType, iLogMessage);
           }
         }
       }
