@@ -87,13 +87,22 @@ namespace XSC {
 
       try {
 
+        std::cout << "Entering while" << std::endl;
         while ((nullptr != mSocket) && (true == mMainThreadRun))
         {
           TCPSocket *wClient = mSocket->accept();
-          std::thread wClientThread(&XSC_ConnectionMethod_TCPServer::TCPClientThread, this, wClient);
-          wClientThread.detach();
-
+          if (nullptr != wClient)
+          {
+            std::thread wClientThread(&XSC_ConnectionMethod_TCPServer::TCPClientThread, this, wClient);
+            wClientThread.detach();
+          }
+          else
+          {
+            std::cout << "Client is null" << std::endl;
+          }
         }
+
+        std::cout << "Exiting while" << std::endl;
       }
       catch (SocketException &e) {
         LOG_TRACE("TCP Server at Port [" << mPortNumber << "] :" << e.what());
@@ -104,6 +113,7 @@ namespace XSC {
       return;
     }
 
+    std::cout << "Setting pointer to null" << std::endl;
     // If the code is here, mSocket is in the process of being deleted. Set to null directly, no need to delete;
     mSocket = nullptr;
   }
