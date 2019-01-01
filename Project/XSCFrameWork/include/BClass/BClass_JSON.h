@@ -312,7 +312,7 @@ namespace XSC
 
     eJSONValueType getValueType() const
     {
-      getJSONObjRef().getValueType();
+      return getJSONObjRef().getValueType();
     }
 
     JSONObjBase& getJSONObjRef()
