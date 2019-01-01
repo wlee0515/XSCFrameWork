@@ -58,36 +58,27 @@ namespace XSC {
 
   bool XSC_ConnectionMethod_TCPServer::SClassStop()
   {
-    std::cout << "TCPServer Stop - start" <<std::endl;
     mMainThreadRun = false;
     if (nullptr != mSocket)
     {
       mSocket->cleanUp();
-      std::cout << "deleting socket" << std::endl;
       delete mSocket;
       mSocket = nullptr;
 
       try {
-
-        std::cout << "Send Empty string to break local accept" << std::endl;
-        TCPSocket wSocket("localhost", mPortNumber);
         // Send Empty string to break local accept
+        TCPSocket wSocket("localhost", mPortNumber);
         wSocket.send("", 1);
       }
       catch (SocketException &e) {
-        LOG_TRACE("TCP Server at Port [" << mPortNumber << "] :" << e.what());
+        LOG_TRACE("TCP Server at Port [" << mPortNumber << "] when sending packet to break local connection accept :" << e.what());
       }
-      std::cout << "Send Complete" << std::endl;
-
     }
 
     if (true == mMainServerThread.joinable())
     {
-      std::cout << "wait for thread" << std::endl;
       mMainServerThread.join();
     }
-
-    std::cout << "TCPServer Stop - end" << std::endl;
     return XSC_ConnectionMethod::SClassStop();
   }
 
@@ -100,8 +91,6 @@ namespace XSC {
       }
 
       try {
-
-        std::cout << "Entering while" << std::endl;
         while ((nullptr != mSocket) && (true == mMainThreadRun))
         {
           TCPSocket *wClient = mSocket->accept();
@@ -110,13 +99,7 @@ namespace XSC {
             std::thread wClientThread(&XSC_ConnectionMethod_TCPServer::TCPClientThread, this, wClient);
             wClientThread.detach();
           }
-          else
-          {
-            std::cout << "Client is null" << std::endl;
-          }
         }
-
-        std::cout << "Exiting while" << std::endl;
       }
       catch (SocketException &e) {
         LOG_TRACE("TCP Server at Port [" << mPortNumber << "] :" << e.what());
@@ -127,7 +110,6 @@ namespace XSC {
       return;
     }
 
-    std::cout << "Setting pointer to null" << std::endl;
     // If the code is here, mSocket is in the process of being deleted. Set to null directly, no need to delete;
     mSocket = nullptr;
   }
