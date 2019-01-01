@@ -259,13 +259,16 @@ namespace XSC
     virtual bool SClassStop()
     {
       bool wState = true;
+      int index = 0;
       for (typename std::deque<T>::iterator wIt = this->begin(); wIt != this->end(); ++wIt)
       {
         XSC_Object* wElement = wIt->getObjectInterface();
         if (nullptr != wElement)
         {
+          std::cout << "Stopping Array Index [" << index << "]" << std::endl;
           wState = wState && wElement->SClassStop();
         }
+        index++;
       }
       return wState && XSC_Array::SClassStop();
     }
@@ -425,6 +428,7 @@ namespace XSC
     virtual bool SClassStop()
     {
       bool wState = true;
+      int index = 0;
       for (typename std::deque<T*>::iterator wIt = this->begin(); wIt != this->end(); ++wIt)
       {
         if (nullptr != *wIt)
@@ -432,9 +436,11 @@ namespace XSC
           XSC_Object* wElement = (*wIt)->getObjectInterface();
           if (nullptr != wElement)
           {
+            std::cout << "Stopping Array Index [" << index << "]" << std::endl;
             wState = wState && wElement->SClassStop();
           }
         }
+        index++;
       }
       return wState && XSC_Array::SClassStop();
     }

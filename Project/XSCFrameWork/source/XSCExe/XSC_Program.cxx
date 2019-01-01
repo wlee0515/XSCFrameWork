@@ -71,10 +71,16 @@ namespace XSC
     this->SClassStart();
     XSC::Singleton::getSingleton<XSC::XSC_Scheduler>().runScheduler();
 
+    std::cout << "Starting Node Viewer" << std::endl;
     int wState = runNodeViewer();
+    std::cout << "Node Viewer End" << std::endl;
+    std::cout << "Saving Log" << std::endl;
     XSC::Log::Logger::getGlobalLogger().saveDequeToTrunk();
+    std::cout << "Saving Log End" << std::endl;
 
+    std::cout << "Stopping Program" << std::endl;
     this->SClassStop();
+    std::cout << "Stopping Program - end" << std::endl;
     return wState;
   }
 

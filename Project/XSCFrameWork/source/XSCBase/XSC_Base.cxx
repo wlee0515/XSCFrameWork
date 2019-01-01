@@ -272,7 +272,9 @@ namespace XSC
 
       if (nullptr != wObjectPtr)
       {
+        std::cout << "Stopping Object [" << std::get<1>(*wIt) << "] - start" << std::endl;
         wState = wState && wObjectPtr->SClassStop();
+        std::cout << "Stopping Object [" << std::get<1>(*wIt) << "] - end" << std::endl;
       }
     }
 
