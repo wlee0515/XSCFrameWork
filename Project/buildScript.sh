@@ -20,6 +20,7 @@ g++ -pthread -o $BuildDir/XSCRun \
                        XSCFrameWork/thirdparty/*/*.cpp \
                        XSCFrameWork/source/*/*.cxx \
                        XSCFrameWork/source/*/*/*.cxx \
-                       XSCFrameWork/source/*.cxx
+                       XSCFrameWork/source/*.cxx \
+                       -Wall
                        
 echo "End Compilation"
