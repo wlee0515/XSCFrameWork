@@ -6,7 +6,7 @@
 #include <string>
 #include <sstream>
 #include <fstream>
-#include <queue>
+#include <list>
 #include <map>
 
 namespace XSC
@@ -15,13 +15,14 @@ namespace XSC
 
     enum eLogType
     {
-        eDisplay    = 0x001
-      , eError      = 0x002
-      , eWarnning   = 0x004
-      , eTrace      = 0x008
       , eDebug1     = 0x010
-      , eDebug2     = 0x020
-      , eDebug3     = 0x040
+      eDisplay    = 0x001
+      , eError    = 0x002
+      , eWarnning = 0x004
+      , eTrace    = 0x008
+      , eDebug1   = 0x010
+      , eDebug2   = 0x020
+      , eDebug3   = 0x040
     };
 
 
@@ -29,7 +30,7 @@ namespace XSC
     {
     public:
 
-      typedef void (*callback_FPtr)( Log::eLogType, const std::string);
+      typedef void(*callback_FPtr)(Log::eLogType, const std::string);
 
       Logger()
         : mFileName("LogFile.txt")
@@ -66,7 +67,7 @@ namespace XSC
         }
 
         wLogString << ":" << tools::printTime() << " " << iLogMessage;
-        mLogQueue.push(wLogString.str());
+        mLogQueue.push_back(wLogString.str());
 
         for (std::map<callback_FPtr, unsigned int>::iterator wIt = mLogSucscribers.begin(); wIt != mLogSucscribers.end(); ++wIt)
         {
@@ -81,12 +82,14 @@ namespace XSC
       {
         if (mLogQueue.size() != 0)
         {
+          std::list<std::string> wLogs;
+          wLogs.swap(mLogQueue);
+
           std::ofstream wFileStream(mFilePath + "./" + mFileName, std::fstream::app);
 
-          while (0 != mLogQueue.size())
+          for (std::list<std::string>::iterator wIt = wLogs.begin(); wIt != wLogs.end(); ++wIt)
           {
-            wFileStream << mLogQueue.front() << std::endl;
-            mLogQueue.pop();
+            wFileStream << *wIt << std::endl;
           }
 
           wFileStream.close();
@@ -138,7 +141,7 @@ namespace XSC
     private:
       std::string mFileName;
       std::string mFilePath;
-      std::queue<std::string> mLogQueue;
+      std::list<std::string> mLogQueue;
 
       std::map<callback_FPtr, unsigned int> mLogSucscribers;
     };
