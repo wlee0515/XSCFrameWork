@@ -62,6 +62,7 @@ namespace XSC {
     mMainThreadRun = false;
     if (nullptr != mSocket)
     {
+      mSocket->cleanUp();
       std::cout << "deleting socket" << std::endl;
       delete mSocket;
       mSocket = nullptr;
