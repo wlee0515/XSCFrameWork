@@ -76,7 +76,7 @@ namespace XSC {
         mSocket = new UDPSocket(mPortNumber);
       }
 
-      const unsigned int cMsgBufferMax = 1000000;
+      const int cMsgBufferMax = 1000000;
       char wBuffer[cMsgBufferMax] = "";
       int wResponseLength = 0;
       std::string wSourceAddress = "";

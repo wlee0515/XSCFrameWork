@@ -83,11 +83,11 @@ namespace XSC {
     if (true == mCOMPortIsOpen)
     {
       int wResponseLength = 0;
-      const unsigned int wMaxLength = 4096;
+      const int wMaxLength = 4096;
 
       std::vector<unsigned char> wBuffer;
       std::vector<char> wSignedBuffer;
-      wBuffer.resize(wMaxLength, '\0');
+      wBuffer.resize(static_cast<unsigned int>(wMaxLength), '\0');
 
       wResponseLength = RS232_PollComport(mCOMPortNumber, &wBuffer[0], wBuffer.size());
 
@@ -110,7 +110,7 @@ namespace XSC {
           std::string wRequest( &wSignedBuffer[0], wResponseLength);
           std::vector<std::string> wResponse;
 
-          bool wCompleted = wConnection->sendConnectionRequest(wRequest, wResponse);
+          wConnection->sendConnectionRequest(wRequest, wResponse);
 
           for (unsigned int wi = 0; wi < wResponse.size(); ++wi)
           {

@@ -21,10 +21,10 @@ int main(int argc, char *argv[])
     wProgramObj.SClassSetup();
 
     // Create all Singletons that needs to be defineable in the XML
-    XSC::XSC_Scheduler&           wScheduler          = XSC::Singleton::getSingleton<XSC::XSC_Scheduler>();
-    XSC::XSC_ConnectionServer&    wConnectionServer   = XSC::Singleton::getSingleton<XSC::XSC_ConnectionServer>();
-    XSC::XSC_DefinedMemoryBlock&  wDefinedMemoryBlock = XSC::Singleton::getSingleton<XSC::XSC_DefinedMemoryBlock>();
-    XSC::XSC_HttpProvider&        wHttpProvider       = XSC::Singleton::getSingleton<XSC::XSC_HttpProvider>();
+    XSC::Singleton::getSingleton<XSC::XSC_Scheduler>();
+    XSC::Singleton::getSingleton<XSC::XSC_ConnectionServer>();
+    XSC::Singleton::getSingleton<XSC::XSC_DefinedMemoryBlock>();
+    XSC::Singleton::getSingleton<XSC::XSC_HttpProvider>();
 
     // Ge a reference to the current program
     XSC::XSC_Program& wProgram = XSC::XSC_Program::getGlobalProgram();

@@ -65,7 +65,7 @@ namespace XSC {
 
     mThreadList.clear();
 
-    return true;
+    return wState;
   }
 
   bool XSC_ConnectionMethod_TCPClient::SClassStop()
@@ -101,7 +101,7 @@ namespace XSC {
       return;
     }
 
-    const unsigned int cMsgBufferMax = 1000000;
+    const int cMsgBufferMax = 1000000;
     char wBuffer[cMsgBufferMax];
     int wResponseLength;
 
