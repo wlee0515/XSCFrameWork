@@ -15,7 +15,6 @@ namespace XSC
 
     enum eLogType
     {
-      , eDebug1     = 0x010
       eDisplay    = 0x001
       , eError    = 0x002
       , eWarnning = 0x004
