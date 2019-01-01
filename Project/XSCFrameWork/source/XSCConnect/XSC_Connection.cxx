@@ -32,6 +32,9 @@ namespace XSC {
   bool XSC_Connection::SClassStart()
   {
 //    LOG_DISPLAY("XSC_Connection: SClass Start Called");
+
+    using namespace std::chrono_literals;
+    std::this_thread::sleep_for(2s);
     refreshConnection();
     return XSC_ConnectionProxy::SClassStart();
   }
