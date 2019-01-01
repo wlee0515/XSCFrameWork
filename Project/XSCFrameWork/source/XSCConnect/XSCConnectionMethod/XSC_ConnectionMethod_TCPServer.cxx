@@ -104,11 +104,8 @@ namespace XSC {
       return;
     }
 
-    if (nullptr != mSocket)
-    {
-      delete mSocket;
-      mSocket = nullptr;
-    }
+    // If the code is here, mSocket is in the process of being deleted. Set to null directly, no need to delete;
+    mSocket = nullptr;
   }
 
   void XSC_ConnectionMethod_TCPServer::TCPClientThread(TCPSocket * iClientSocket)
