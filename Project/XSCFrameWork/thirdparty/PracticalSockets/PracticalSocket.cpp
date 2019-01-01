@@ -18,7 +18,7 @@
  */
 
 #include "PracticalSocket.h"
-
+#include <iostream>
 #ifndef __linux__
   #pragma comment(lib, "Ws2_32.lib")
   #include <winsock.h>         // For socket(), connect(), send(), and recv()
@@ -103,8 +103,10 @@ Socket::Socket(int sockDesc) {
 
 Socket::~Socket() {
   #ifdef WIN32
+  std::cout << "Closing Socket in districtor" << std::endl;
     ::closesocket(sockDesc);
   #else
+  std::cout << "Closing Socket in districtor" << std::endl;
     ::close(sockDesc);
   #endif
   sockDesc = -1;
