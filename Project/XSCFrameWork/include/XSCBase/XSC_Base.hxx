@@ -436,8 +436,9 @@ namespace XSC
           XSC_Object* wElement = (*wIt)->getObjectInterface();
           if (nullptr != wElement)
           {
-            std::cout << "Stopping Array Index [" << index << "]" << std::endl;
+            std::cout << "Stopping Array Index [" << index << "] - Start" << std::endl;
             wState = wState && wElement->SClassStop();
+            std::cout << "Stopping Array Index [" << index << "] - End" << std::endl;
           }
         }
         index++;

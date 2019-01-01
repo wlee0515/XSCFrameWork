@@ -79,12 +79,9 @@ namespace XSC {
       {
         if (nullptr != wIt->first)
         {
-          std::cout << "Deleting Socket" << std::endl;
           delete wIt->first;
-          std::cout << "Waiting for Thread" << std::endl;
-          wIt->second.join();
-          std::cout << "Thread join" << std::endl;
         }
+        wIt->second.join();
       }
     }
 

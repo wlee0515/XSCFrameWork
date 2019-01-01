@@ -59,16 +59,13 @@ namespace XSC {
   {
     if (nullptr != mSocket)
     {
-      std::cout << "Deleting Socket" << std::endl;
       delete mSocket;
       mSocket = nullptr;
     }
 
     if (true == mMainServerThread.joinable())
     {
-      std::cout << "Waiting for Thread" << std::endl;
       mMainServerThread.join();
-      std::cout << "Thread join" << std::endl;
     }
 
     return XSC_ConnectionMethod::SClassStop();
