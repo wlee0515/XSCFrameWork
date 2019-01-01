@@ -33,6 +33,7 @@ namespace XSC {
     TCPServerSocket* mSocket;
     unsigned short mPortNumber;
     std::thread mMainServerThread;
+    bool mMainThreadRun;
   };
 }
 

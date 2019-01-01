@@ -9,6 +9,7 @@ namespace XSC {
   XSC_ConnectionMethod_TCPServer::XSC_ConnectionMethod_TCPServer(const XSC_ConnectionMethod::XSC_ConnectionSetup& iConnectionSetup)
     : XSC_ConnectionMethod(iConnectionSetup)
     , mPortNumber(8080)
+    , mMainThreadRun(false)
   {
     if (0 != iConnectionSetup.getPortNumber())
     {
@@ -47,6 +48,7 @@ namespace XSC {
         return false;
       }
 
+      mMainThreadRun = true;
       mMainServerThread = std::thread(&XSC_ConnectionMethod_TCPServer::TCPServerThread, this);
       return true;
     }
@@ -57,6 +59,7 @@ namespace XSC {
   bool XSC_ConnectionMethod_TCPServer::SClassStop()
   {
     std::cout << "TCPServer Stop - start" <<std::endl;
+    mMainThreadRun = false;
     if (nullptr != mSocket)
     {
       std::cout << "deleting socket" << std::endl;
@@ -84,7 +87,7 @@ namespace XSC {
 
       try {
 
-        while (1)
+        while ((nullptr != mSocket) && (true == mMainThreadRun))
         {
           TCPSocket *wClient = mSocket->accept();
           std::thread wClientThread(&XSC_ConnectionMethod_TCPServer::TCPClientThread, this, wClient);
