@@ -19,7 +19,6 @@ namespace XSC
       addChild("ReplyObject", mReplyObject);
     }
 
-    // XSC_HttpProvder::UriService Start
     virtual bool processHttpPOSTMethod(const std::string& iURI, const std::string& iRequest, std::string& oResponse)
     {
       BClassJSON wJSONObject;
@@ -57,7 +56,6 @@ namespace XSC
       }
       return true;
     }
-    // XSC_HttpProvder::UriService stop
 
     void setReplyObject(T_ReplyObject& iReplyClass)
     {
