@@ -36,42 +36,46 @@ namespace XSC
         , mFilePath("./")
       {
         mLogQueue.clear();
+        mLogSubscribers.clear();
       }
 
 
       inline void logMessage(const eLogType& iLogType, const std::string& iLogMessage)
       {
-        std::stringstream wLogString;
+        std::string wLogString = "";
 
         switch (iLogType) {
         case eDisplay:
-          wLogString << "DISP";
+          wLogString += "DISP";
           break;
         case eWarnning:
-          wLogString << "WARN";
+          wLogString += "WARN";
           break;
         case eTrace:
-          wLogString << "TRACE";
+          wLogString += "TRACE";
           break;
         case eDebug1:
-          wLogString << "DEBUG1";
+          wLogString += "DEBUG1";
           break;
         case eDebug2:
-          wLogString << "DEBUG2";
+          wLogString += "DEBUG2";
           break;
         case eDebug3:
-          wLogString << "DEBUG3";
+          wLogString += "DEBUG3";
           break;
         default:
           break;
         }
 
-        wLogString << ":" << tools::printTime() << " " << iLogMessage;
-        mLogQueue.push_back(wLogString.str());
+        wLogString += ":";
+        wLogString += tools::printTime();
+        wLogString += " ";
+        wLogString += iLogMessage;
+        mLogQueue.push_back(wLogString);
 
-        if (0 != mLogSucscribers.size())
+        if (0 != mLogSubscribers.size())
         {
-          for (std::map<callback_FPtr, unsigned int>::iterator wIt = mLogSucscribers.begin(); wIt != mLogSucscribers.end(); ++wIt)
+          for (std::map<callback_FPtr, unsigned int>::iterator wIt = mLogSubscribers.begin(); wIt != mLogSubscribers.end(); ++wIt)
           {
             if (0 != (iLogType & wIt->second))
             {
@@ -121,12 +125,12 @@ namespace XSC
 
       inline void subscribeToLogs(callback_FPtr iLogSubscriber, unsigned int iDisplayFlag)
       {
-        mLogSucscribers[iLogSubscriber] = iDisplayFlag;
+        mLogSubscribers[iLogSubscriber] = iDisplayFlag;
       }
 
       inline void unsubscribeToLogs(callback_FPtr iLogSubscriber)
       {
-        mLogSucscribers.erase(iLogSubscriber);
+        mLogSubscribers.erase(iLogSubscriber);
       }
 
       static Logger& getGlobalLogger()
@@ -146,7 +150,7 @@ namespace XSC
       std::string mFilePath;
       std::list<std::string> mLogQueue;
 
-      std::map<callback_FPtr, unsigned int> mLogSucscribers;
+      std::map<callback_FPtr, unsigned int> mLogSubscribers;
     };
 
   }
