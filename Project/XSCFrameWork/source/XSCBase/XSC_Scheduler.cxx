@@ -82,8 +82,10 @@ namespace XSC
     if (false == mExecuteScheduler)
     {
       mExecuteScheduler = true;
+      /*
       mSchedulerThread = std::thread(&XSC_Scheduler::schedulerWorkerThread, this);
       mSchedulerThread.detach();
+      */
     }
   }
 
