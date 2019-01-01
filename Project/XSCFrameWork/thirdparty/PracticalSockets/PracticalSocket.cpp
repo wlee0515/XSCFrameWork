@@ -103,10 +103,10 @@ Socket::Socket(int sockDesc) {
 
 Socket::~Socket() {
   #ifdef WIN32
-  std::cout << "Closing Socket in districtor" << std::endl;
+  std::cout << "Closing Socket in districtor [" << sockDesc << "]" << std::endl;
     ::closesocket(sockDesc);
   #else
-  std::cout << "Closing Socket in districtor" << std::endl;
+  std::cout << "Closing Socket in districtor [" << sockDesc << "]" << std::endl;
     ::close(sockDesc);
   #endif
   sockDesc = -1;
