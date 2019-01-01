@@ -31,7 +31,6 @@ namespace XSC {
 
   bool XSC_Connection::SClassStart()
   {
-    LOG_DISPLAY("XSC_Connection: SClass Start Called");
     refreshConnection();
     return XSC_ConnectionProxy::SClassStart();
   }
