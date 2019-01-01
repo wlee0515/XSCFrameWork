@@ -66,6 +66,19 @@ namespace XSC {
       std::cout << "deleting socket" << std::endl;
       delete mSocket;
       mSocket = nullptr;
+
+      try {
+
+        std::cout << "Send Empty string to break local accept" << std::endl;
+        TCPSocket wSocket("localhost", mPortNumber);
+        // Send Empty string to break local accept
+        wSocket.send("", 1);
+      }
+      catch (SocketException &e) {
+        LOG_TRACE("TCP Server at Port [" << mPortNumber << "] :" << e.what());
+      }
+      std::cout << "Send Complete" << std::endl;
+
     }
 
     if (true == mMainServerThread.joinable())
