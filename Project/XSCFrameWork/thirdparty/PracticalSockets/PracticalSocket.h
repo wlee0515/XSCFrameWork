@@ -21,7 +21,6 @@
 #define __PRACTICALSOCKET_INCLUDED__
 
 #ifndef __linux__
-#else
 #pragma warning( disable : 4290 )
 #endif
 
