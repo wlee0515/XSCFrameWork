@@ -10,7 +10,7 @@ namespace XSC
 
   ADD_TYPE_FACTORY_WITH_NAME(XSC_Scheduler, "Scheduler");
 
-  XSC_Scheduler::XSC_Scheduler() : mCycleCount(0), mBasePeriod(1.0)
+  XSC_Scheduler::XSC_Scheduler() : mBasePeriod(1.0), mCycleCount(0), mExecuteScheduler(false)
   {
 
   }
