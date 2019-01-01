@@ -17,8 +17,8 @@ namespace XSC
 
   void XSC_Scheduler::SClassSetup()
   {
-    addChild("Base Period", mBasePeriod);
-    addChild("Cycle Count", mCycleCount);
+    addChild("BasePeriod", mBasePeriod);
+    addChild("CycleCount", mCycleCount);
 
     XSC_Object::SClassSetup();
   }

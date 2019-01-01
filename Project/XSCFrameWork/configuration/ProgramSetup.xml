@@ -1,7 +1,7 @@
 <ProgramSetup>
   <DataDef Name="LogFilePath">../log/</DataDef>
 	<DataDef Name = "SingletonProvider">
-    <DataDef Name = "Scheduler">
+    <DataDef Name = "Scheduler" BasePeriod = "0.25">
     </DataDef>
     <DataDef Name = "ConnectionServer">
       <FileRef Name = "Connection Server">./ConfigurationFiles/ConnectionServerDefinition.xml</FileRef>	
