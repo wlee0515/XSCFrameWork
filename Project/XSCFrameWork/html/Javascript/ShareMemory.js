@@ -1,7 +1,7 @@
 <!--
 
 //Send Data
-function sendPostRequest(iURL, iCmd, iFuntion) {
+function sendPostRequest(iURL, iCmd, iFunction) {
     var http = new XMLHttpRequest();
     var url = "SharedMem";
     if (null != iURL) {
@@ -15,10 +15,10 @@ function sendPostRequest(iURL, iCmd, iFuntion) {
     http.responseType = "arraybuffer"
     http.onreadystatechange = function () {//Call a function when the state changes.
         if (http.readyState == 4 && http.status == 200) {
-            if (null != iFuntion) {
+            if (null != iFunction) {
 
                 var wResponse = http.response;
-                iFuntion(wResponse);
+                iFunction(wResponse);
             }
         }
     }
