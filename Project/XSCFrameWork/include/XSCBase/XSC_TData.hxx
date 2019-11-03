@@ -14,9 +14,8 @@ namespace XSC
   {
   public:
 
-    XSC_TData()
+    XSC_TData() 
     {
-      memset(&mData, 0, sizeof(T));
     }
 
     XSC_TData(const T& iData) : mData(iData)
