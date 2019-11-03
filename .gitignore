@@ -8,7 +8,7 @@
 *.opendb
 *.log
 *.user
-Project/.vs/XSCFrameWork/v14/.suo
+Project/.vs/**
 Project/log/LogFile.txt
 Project/XSCFrameWork.sdf
 Project/enc_temp_folder/*
