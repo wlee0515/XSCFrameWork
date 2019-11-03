@@ -34,6 +34,8 @@ namespace XSC
     XSC_SingletonProvider mSingletonProvider;
     XSC_NodeViewer mNodeViewer;
 
+    XSC::XSC_Bool mExitProgram;
+    XSC::XSC_Bool mRunNodeViewer;
     XSC::XSC_String mLogFileName;
     XSC::XSC_String mLogFilePath;
     XSC::XSC_String mDisplayName;

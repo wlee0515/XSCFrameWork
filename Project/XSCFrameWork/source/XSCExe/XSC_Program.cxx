@@ -11,7 +11,9 @@ namespace XSC
   ADD_TYPE_FACTORY_WITH_NAME(XSC_Program, "Program");
 
   XSC_Program::XSC_Program()
-    : mLogFileName("LogFile.txt")
+    : mExitProgram(false)
+    , mRunNodeViewer(false)
+    , mLogFileName("LogFile.txt")
     , mLogFilePath("./")
     , mDisplayName("Program")
   {
@@ -20,6 +22,8 @@ namespace XSC
 
   void XSC_Program::SClassSetup()
   {
+    addChild("ExitProgram", mExitProgram);
+    addChild("RunNodeViewer", mRunNodeViewer);
     addChild("LogFileName", mLogFileName);
     addChild("LogFilePath", mLogFilePath);
     addChild("DisplayName", mDisplayName);
@@ -77,9 +81,25 @@ namespace XSC
     std::cout << "Starting Program Object Scheduler" << std::endl;
     XSC::Singleton::getSingleton<XSC::XSC_Scheduler>().runScheduler();
 
-    std::cout << "Starting Node Viewer" << std::endl;
-    int wState = runNodeViewer();
-    std::cout << "Node Viewer End" << std::endl;
+    std::chrono::seconds wRestTIme = std::chrono::seconds(1);
+    int wState = 0;
+    while (false == mExitProgram)
+    {
+      if (true == mRunNodeViewer)
+      {
+        std::cout << "Starting Node Viewer" << std::endl;
+        wState = runNodeViewer();
+        std::cout << "Node Viewer End" << std::endl;
+
+        if (2 != wState)
+        {
+          mExitProgram = true;
+        }
+        mRunNodeViewer = false;
+      }
+
+      std::this_thread::sleep_for(wRestTIme);
+    }
 
     std::cout << "Saving Log" << std::endl;
     XSC::Log::Logger::getGlobalLogger().saveDequeToTrunk();
@@ -119,11 +139,30 @@ namespace XSC
   int XSC_Program::runNodeViewer()
   {
     std::string wInput("");
-
-    while ((wInput != "exit") && (wInput != "reboot"))
+    while (1)
     {
+      if (wInput == "exit")
+      {
+        return 0;
+      }
+
+      if (wInput == "reboot")
+      {
+        return 1;
+      }
+
+      if (wInput == "sleep")
+      {
+        return 2;
+      }
+
       std::stringstream wStream;
       mNodeViewer.processCmdLine(wInput, wStream);
+
+      if ((false == mRunNodeViewer) || (true == mExitProgram))
+      {
+        break;
+      }
 
       std::cout << wStream.str();
       std::cout << "cmd>";
@@ -133,11 +172,11 @@ namespace XSC
       std::cout << "\n\n\n";
     }
 
-    if (wInput == "reboot")
+    if (false == mExitProgram)
     {
-      return 1;
+      return 2;
     }
-    
+
     return 0;
   }
 
@@ -157,6 +196,11 @@ namespace XSC
           {
             mConfigFileList.push_back(iCmdIDArgList[wi]);
           }
+        }
+
+        if (iCmdIDArgList[wi] == "-NodeViewer")
+        {
+          mRunNodeViewer = true;
         }
       }
     }
