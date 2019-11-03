@@ -33,7 +33,7 @@
 			<DataDef Name = "PortNumber">4000</DataDef>
 		</DataDef>
 	</ElmDef>
-  <ElmDef ConnectionKey = "TCPClieant" ConnectionType = "TCPClient">
+  <ElmDef ConnectionKey = "TCPClient" ConnectionType = "TCPClient">
 		<DataDef Name = "ConnectionSetup">
 			<DataDef Name = "IPAddress">127.0.0.1</DataDef>
 			<DataDef Name = "PortNumber">5001</DataDef>
