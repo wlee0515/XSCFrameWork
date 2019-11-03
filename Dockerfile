@@ -7,8 +7,6 @@ RUN ["apt-get", "install", "-y", "g++"]
 RUN ["apt-get", "install", "-y", "nano"]
 RUN ["apt-get", "install", "-y", "git"]
 
-VOLUME /Project
-
 COPY ./runIt.sh /
 
 ENTRYPOINT  ["./runIt.sh"]
