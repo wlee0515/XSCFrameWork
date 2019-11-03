@@ -1,0 +1,20 @@
+version: "3"
+services:
+  ubuntu:
+    image: xscframework
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command : -file configuration/ProgramSetup.xml
+    ports:
+     - "8080:8080/tcp"
+     - "5001:5001/tcp"
+     - "5000:5000/udp"
+    volumes:
+     - ./Project/mainScript.sh:/Project/mainScript.sh
+     - ./Project/Scripts:/Project/Scripts
+     - ./Project/log:/Project/log
+     - ./Project/configuration:/Project/configuration
+     - ./Project/html:/Project/html
+     - ./Project/XSCFrameWork:/Project/XSCFrameWork
+    tty: true

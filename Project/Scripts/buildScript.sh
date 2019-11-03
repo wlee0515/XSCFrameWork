@@ -1,17 +1,19 @@
 #!/bin/bash
 
+echo "Starting buildScript.sh"
+
 BuildDir="build"
 
 if [ -d $BuildDir ]; then 
    echo "Removing existing build directory {$BuildDir}"
-   sudo rm -rf $BuildDir
+   rm -rf $BuildDir
 fi
 
-echo "Creatiing new build directory {$BuildDir}"
-sudo mkdir $BuildDir
+echo "Creating new build directory {$BuildDir}"
+mkdir $BuildDir
 
 echo "Setting directory permission to 757"
-sudo chmod -R 757 $BuildDir
+chmod -R 757 $BuildDir
 
 echo "Start Compilation"
 g++ -pthread -o $BuildDir/XSCRun \
