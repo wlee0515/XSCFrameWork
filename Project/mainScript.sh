@@ -2,9 +2,10 @@
 echo "Starting mainScript.sh"
 
 echo "Arguments Received"
+a=0
 for i; do 
-   index=i
-   echo "arg[$index] :" $i
+   echo "arg [$a]:" $i
+   a=$a+1
 done
 
 echo "listing directory"
