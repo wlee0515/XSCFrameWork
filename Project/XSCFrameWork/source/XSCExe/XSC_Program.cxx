@@ -52,6 +52,7 @@ namespace XSC
 
   int XSC_Program::ProgramMain(int argc, char *argv[])
   {
+    std::cout << "Starting Program Object Main Function" << std::endl;
     std::cout << "argc = " << argc << std::endl;
     std::vector<std::string> wArgv;
     for (int i = 0; i < argc; i++)
@@ -60,20 +61,26 @@ namespace XSC
       wArgv.push_back(argv[i]);
     }
 
+    std::cout << "Processing Arguments" << std::endl;
     processVariables(wArgv);
 
     for (unsigned int wi = 0; wi < mConfigFileList.size(); ++wi)
     {
+      std::cout << "Processing Configuration File : " << mConfigFileList[wi] << std::endl;
       std::list<std::string> wFileStack;
       Parse::parseXMLFile(*this, mConfigFileList[wi], wFileStack);
     }
 
+    std::cout << "Starting Program Object" << std::endl;
     this->SClassStart();
+
+    std::cout << "Starting Program Object Scheduler" << std::endl;
     XSC::Singleton::getSingleton<XSC::XSC_Scheduler>().runScheduler();
 
     std::cout << "Starting Node Viewer" << std::endl;
     int wState = runNodeViewer();
     std::cout << "Node Viewer End" << std::endl;
+
     std::cout << "Saving Log" << std::endl;
     XSC::Log::Logger::getGlobalLogger().saveDequeToTrunk();
     std::cout << "Saving Log End" << std::endl;
