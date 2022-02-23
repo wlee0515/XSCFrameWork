@@ -1,6 +1,6 @@
 # XSCFrameWork
 
-# To Use
+## To Use
 1) Set terminal folder to Repositiory root folder
 2) Execute the following command to build the Image
 
